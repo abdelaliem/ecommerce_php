@@ -20,9 +20,9 @@ class user
             $count =$result->fetch_all(MYSQLI_NUM);
             // print_r ($count[0][0]) ;
             if($count[0][0]!=0){
-                return "zl is here";
+                return "login successfuly";
             }else{
-                return "a7aaa zl was here";
+                return "a7a the email or password is not correct please try again";
             }
          
     }
