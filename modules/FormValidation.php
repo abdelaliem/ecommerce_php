@@ -46,5 +46,6 @@ class FormValidation{
     }
     private function addError($key,$val){
         return $this -> errors[$key]=$val;
-    }
+    }  
+    
 }
