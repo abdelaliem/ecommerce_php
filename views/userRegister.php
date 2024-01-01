@@ -5,38 +5,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="./style/bootstrap.min.css" rel="stylesheet">
+    <link href="./style/userregister.css" rel="stylesheet">
 </head>
 
 <body>
     <div class="container">
-
-        <h2>register</h2>
-        <form method="post">
-
-            <label for="">Username</label>
+        <form method="post" class="m-auto main mt-2">
+            <h2 class="text-center">register</h2>
+            <div class="d-flex justify-content-evenly">
+                <div>
+                    <label>Username</label>
+                    <br>
+                    <input class="form-control" type="text" name="name">
+                </div>
+                <div>
+                    <label>email</label>
+                    <br>
+                    <input class="form-control" type="email" name="email">
+                </div>
+            </div>
+            <div class="d-flex justify-content-evenly">
+                <div>
+                <label for="">phone</label>
+                    <br>
+                    <input class="form-control" type="number" name="phone">
+                </div>
+                <div>
+                <label for="">password</label>
+                    <br>
+                    <input class="form-control" type="text" name="password">
+                </div>
+            </div>
             <br>
-            <input class="form-control" type="text" name="name">
-            <br>
-            <label for="">email</label>
-            <br>
-            <input class="form-control" type="email" name="email">
-            <br>
-            <label for="">phone</label>
-            <br>
-            <input class="form-control" type="number" name="phone">
-            <br>
-            <label for="">password</label>
-            <br>
-            <input class="form-control" type="text" name="password">
-            <br>
-            <label for="">address</label>
-            <br>
-            <input class="form-control" type="text" name="address">
-            <input type="submit" class="btn btn-outline-primary mt-4" value="Log in" />
-        </form>
-
-        <?php
+            <div class="w-75 m-auto">    
+                <label for="" class>address</label>
+                <br>
+                <input class="form-control" type="text" name="address">
+            </div>
+            <div class="d-flex justify-content-evenly my-4">
+                <input type="submit" class="btn btn-dark " value="Register" />
+            </div>
+            
+            <?php
         require("../modules/FormValidation.php");
         require("../modules/user.php");
         require("../modules/Connection.php");
@@ -56,6 +67,7 @@
             }
         }
         ?>
+            </form>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>

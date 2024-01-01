@@ -1,5 +1,4 @@
 <?php
-
 class user
 {
     private $conn;
@@ -10,8 +9,14 @@ class user
     }
     public function add_user($username, $Email, $password, $phone_number, $address)
     {
-        $query = "INSERT INTO `user`( `name`, `password`, `email`, `phone`, `address`) VALUES ('$username','$Email','$password','$phone_number','$address')";
-        $this->conn->query($query);
+        try{
+
+            $query = "INSERT INTO `user`( `name`, `password`, `email`, `phone`, `address`) VALUES ('$username','$Email','$password','$phone_number','$address')";
+            $this->conn->query($query);
+        }catch(Exception $e){
+            echo "this email or phone is already used";
+            // echo $e;
+        }
     }
     public function get_user($Email, $password)
     {
@@ -20,9 +25,9 @@ class user
             $count =$result->fetch_all(MYSQLI_NUM);
             // print_r ($count[0][0]) ;
             if($count[0][0]!=0){
-                return "login successfuly";
+                header("Location: userAccount.php");
             }else{
-                return "a7a the email or password is not correct please try again";
+                return "the email or password is not correct please try again";
             }
          
     }

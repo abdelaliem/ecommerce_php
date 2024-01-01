@@ -5,34 +5,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="./style/bootstrap.min.css" rel="stylesheet">
+    <link href="./style/userlogin.css" rel="stylesheet">
 </head>
+<?php
+require("../modules/user.php");
+require("../modules/Connection.php");
+$err = '';
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $conn = new Connection;
+    $user = new user($conn->conn);
+    $err = $user->get_user($_POST["email"], $_POST["password"]);
+}
+?>
 
 <body>
     <div class="container">
+        <form method="post" class="m-auto main mt-5">
+            <h2 class="text-center ">Login</h2>
 
-        <h2>Login</h2>
-        <form method="post">
-
-            <label for="">Email</label>
+            <label class="my-2">Email</label>
             <br>
             <input class="form-control" type="text" name="email">
             <br>
-            <label for="">Password</label>
+            <label class="my-2">Password</label>
             <br>
             <input class="form-control" type="text" name="password">
-            <input type="submit" class="btn btn-outline-primary mt-4" value="Log in" />
+            <input type="submit" class="btn btn-outline-dark mt-4 button" value="Log in" />
+            <div class="d-flex justify-content-evenly my-4">
+                <a class="text-decoration-none btn btn-primary" href="adminLogin.php">Admin</a>
+                <a class="text-decoration-none btn btn-primary" href="./userregister.php">Register</a>
+            </div>
+            <div class="err">
+                <?php
+                if ($err) {
+                    echo $err;
+                }
+                ?>
+            </div>
         </form>
 
-        <?php
-        require("../modules/user.php");
-        require("../modules/Connection.php");
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                $conn = new Connection;
-                $user = new user($conn->conn);
-                echo $user->get_user($_POST["email"],$_POST["password"]);
-        }
-        ?>
+
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>

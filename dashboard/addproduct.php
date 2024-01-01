@@ -6,14 +6,14 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <title>Document</title>
 </head>
-<body>
+<body> 
     <?php
     if($_SERVER['REQUEST_METHOD']=="POST"){
         require '../modules/product.php';
         print_r($_POST);
         $product = new product();
         $product -> SetProduct($_POST['name'],$_POST['image'],$_POST['desc'],$_POST['quantity'],$_POST['price'],$_POST['cid']);
-        header('location:http://localhost/ecommerce_php/ecommerce_php/dashboard/');
+        header('location:http://localhost/ecommerce_php/dashboard/');
     }
     ?>
   <div class="container w-50 mt-5"> 
@@ -32,7 +32,7 @@
     </div>
     <div class="col-4">
       <label for="inputAddress2" class="form-label mt-2">Quantity</label>
-      <input type="text" class="form-control" name="quantity">
+      <input type="number" class="form-control" name="quantity">
     </div>
     <div class="col-md-3">
       <label for="inputCity" class="form-label mt-2">Price</label>
@@ -43,8 +43,8 @@
     <div class="col-md-4">
       <label for="inputState" class="form-label mt-2" >Category</label>
       <select id="inputState" class="form-select" name="cid">
-        <option value=1 selected> electrons</option>
-        <option value=2>sports</option>
+        <option value=1 selected>phones</option>
+        <option value=2>phones</option>
       </select>
     </div>
     <div class="col-8"></div>
