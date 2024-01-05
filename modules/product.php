@@ -1,14 +1,17 @@
 <?php
-
 class product
 {
-    private $con ;
+    protected $con ;
     public function __construct(){
         require '../modules/Connection.php';
         $this -> con = new Connection();
     }
-    public function GetProducts(){
-         
+    public function GetProducts($id=0){
+         if($id!=0){
+            $query = "SELECT * FROM `products` WHERE `product_id`=$id";
+            $data = $this -> con -> conn -> query($query) -> fetch_all(MYSQLI_ASSOC);
+            return $data ; 
+         }
         $query = "SELECT * FROM `products`";
         $data = $this -> con -> conn -> query($query) -> fetch_all(MYSQLI_ASSOC);
         return $data ; 
