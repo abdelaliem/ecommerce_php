@@ -18,6 +18,8 @@
         $quantity = $data[0]['quantity'];
         $category_id = $data [0]['category_id'];
         $price = $data[0]['price'];
+        
+    if($_SERVER['REQUEST_METHOD']=="POST"){
         $product->UpdateProduct($id,$_POST['name'],$_POST['image'],$_POST['desc'],$_POST['quantity'],$_POST['price'],$_POST['cid']);
         header('location:http://localhost/ecommerce_php/dashboard/');
     }
