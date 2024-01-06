@@ -29,5 +29,7 @@ class product
     public function UpdateProduct($product_id, string $name , $image , $desc , $quantity , $price , $cid){
         $query = "UPDATE `products` SET  `product_name`='$name',`price`='$price',`product_img`='$image',`quantity`='$quantity',`description`='$desc',`category_id`='$cid'  WHERE `product_id` = $product_id";
         $this -> con -> conn -> query($query);
+
     }
 }
+// 1
