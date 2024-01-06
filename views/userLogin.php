@@ -13,6 +13,7 @@ require("../modules/user.php");
 require("../modules/Connection.php");
 $err = '';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
     $conn = new Connection;
     $user = new user($conn->conn);
     $err = $user->get_user($_POST["email"], $_POST["password"]);
@@ -31,10 +32,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <label class="my-2">Password</label>
             <br>
             <input class="form-control" type="text" name="password">
-            <input type="submit" class="btn btn-outline-dark mt-4 button" value="Log in" />
+            <div class="d-flex align-items-center my-4">
+                <input type="submit" class="btn btn-primary mt-4 button" value="Log in" />
+                <div>
+                    <input type="checkbox" class="form control mt-4 ms-5">
+                    <label>Remember me</label>
+                </div>
+
+            </div>
             <div class="d-flex justify-content-evenly my-4">
-                <a class="text-decoration-none btn btn-primary" href="adminLogin.php">Admin</a>
-                <a class="text-decoration-none btn btn-primary" href="./userregister.php">Register</a>
+                <a class="text-decoration-none btn btn-outline-dark " href="adminLogin.php">Admin</a>
+                <a class="text-decoration-none btn btn-outline-dark " href="./userregister.php">Register</a>
             </div>
             <div class="err">
                 <?php

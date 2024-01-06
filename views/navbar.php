@@ -17,27 +17,32 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse justify-content-center fw-bold" id="navbar">
-                    <div class="navbar-nav ps-5 ms-5 ">
-                        <a class="nav-link ms-5" href="./index.php">Home</a>
-                        <a class="nav-link ms-5" href="./views/products.php">Shop</a>
-                        <a class="nav-link ms-5" href="./views/about.php">About</a>
-                        <a class="nav-link ms-5" href="./views/contact.php">Contact</a>
+                <div class="collapse navbar-collapse justify-content-between">
+                    <div class="fw-bold navbar-brand fs-4">
+                        e-commerce
                     </div>
-                </div>
-                <div class="navbar-nav">
-                    <a class="nav-link mx-3" href="">
-                        <span class="material-symbols-outlined">
-                            search
-                        </span></a>
-                    <a class="nav-link mx-3" href="./views/userLogin.php">
-                        <span class="material-symbols-outlined">
-                            person
-                        </span></a>
-                    <a class="nav-link mx-3" href="#">
-                        <span class="material-symbols-outlined">
-                            shopping_cart
-                        </span></a>
+                    <div class=" fw-semibold" id="navbar">
+                        <div class="navbar-nav ps-5 ms-5 ">
+                            <a class="fs-5 nav-link ms-5" href="./index.php">Home</a>
+                            <a class="fs-5 nav-link ms-5" href="./views/products.php">Shop</a>
+                            <a class="fs-5 nav-link ms-5" href="./views/about.php">About</a>
+                            <a class="fs-5 nav-link ms-5" href="./views/contact.php">Contact</a>
+                        </div>
+                    </div>
+                    <div class="navbar-nav">
+                        <a class="nav-link mx-3" href="">
+                            <span class="fs-2 material-symbols-outlined">
+                                search
+                            </span></a>
+                        <a class="nav-link mx-3" href="./views/userLogin.php">
+                            <span class="fs-2 material-symbols-outlined">
+                                person
+                            </span></a>
+                        <a class="nav-link mx-3" href="#">
+                            <span class="fs-2 material-symbols-outlined">
+                                shopping_cart
+                            </span></a>
+                    </div>
                 </div>
             </div>
         </nav>
