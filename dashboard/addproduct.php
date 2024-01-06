@@ -9,7 +9,7 @@
 <body> 
     <?php
     if($_SERVER['REQUEST_METHOD']=="POST"){
-      if(trim($_POST['name'])){
+      if(trim($_POST['name']) && trim($_POST['image']) && trim($_POST['desc'])){
         require '../modules/product.php';
         print_r($_POST);
         $product = new product();

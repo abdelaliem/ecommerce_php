@@ -20,7 +20,7 @@
         $price = $data[0]['price'];
         
     if($_SERVER['REQUEST_METHOD']=="POST"){
-      if(trim($_POST['name'])){
+      if(trim($_POST['name']) && trim($_POST['image']) && trim($_POST['desc'])){
         $product->UpdateProduct($id,$_POST['name'],$_POST['image'],$_POST['desc'],$_POST['quantity'],$_POST['price'],$_POST['cid']);
         header('location:http://localhost/ecommerce_php/dashboard/');
       }
