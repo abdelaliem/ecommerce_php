@@ -13,18 +13,16 @@
       background-color: antiquewhite;
     }
   </style>
-  <style>
-    ::-webkit-scrollbar {
-      scroll-behavior: smooth;
-    }
-  </style>
 </head>
 
 
 
 <body>
-
+<?php
+    require('./navbar.php');
+?>
   <div class="container mt-5">
+    <p class=" fw-semibold">Home <span class=" fw-bolder">></span> Shop <span class="fw-bold"   >></span> | Asgaard sofa</p>
     <div class="row ">
       <div class="col-md-6 ">
         <section class="bigger-one-img">
