@@ -3,12 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/navbar.css">
+    <link href="../views/style/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <title>Account</title>
 </head>
 <body>
-    <?php 
+    <?php
         session_start();
         if(isset($_SESSION["email"])){
+            require('../views/navbar.php');
+            require('../views/topbar.php');
             echo $_SESSION["email"];
         }else{
             header("location: userlogin.php");
