@@ -18,14 +18,22 @@ class user
             // echo $e;
         }
     }
-    public function get_user($Email, $password)
+    public function get_user($post)
     {
-            $query = "SELECT COUNT(*) FROM `user` WHERE `email` = '$Email' AND `password` = '$password'";
+        $email = $post["email"];
+        $password = $post["password"];       
+            $query = "SELECT COUNT(*) FROM `user` WHERE `email` = '$email' AND `password` = '$password'";
             $result = $this->conn->query($query);
             $count =$result->fetch_all(MYSQLI_NUM);
             // print_r ($count[0][0]) ;
             if($count[0][0]!=0){
-                header("Location: userAccount.php");
+                if(isset($post["rem"])){
+                    setcookie("email",$email,time()+60);
+                    setcookie("pass",$password,time()+60);
+                }
+                session_start();
+                $_SESSION["email"] = $email;
+               return header("Location: userAccount.php");
             }else{
                 return "the email or password is not correct please try again";
             }

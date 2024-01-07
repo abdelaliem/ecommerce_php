@@ -6,6 +6,15 @@
     <title>Account</title>
 </head>
 <body>
-    
+    <?php 
+        session_start();
+        if(isset($_SESSION["email"])){
+            echo $_SESSION["email"];
+        }else{
+            header("location: userlogin.php");
+        }
+
+    ?>
+    <a href="./logout.php">Logout</a>
 </body>
 </html>
