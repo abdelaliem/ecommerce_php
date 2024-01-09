@@ -12,14 +12,20 @@
 require("../modules/user.php");
 require("../modules/Connection.php");
 $err = '';
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-    $conn = new Connection;
-    $user = new user($conn->conn);
-    $err = $user->get_user($_POST["email"], $_POST["password"]);
+// echo $_SESSION["email"];
+session_start();
+if(isset($_SESSION["email"])) {
+    header("location: useraccount.php");
+    echo $_SESSION["email"];
+}
+else {
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $conn = new Connection;
+        $user = new user($conn->conn);
+        $err = $user->get_user($_POST);
+    }
 }
 ?>
-
 <body>
     <div class="container">
         <form method="post" class="m-auto main mt-5">
@@ -35,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="d-flex align-items-center my-4">
                 <input type="submit" class="btn btn-primary mt-4 button" value="Log in" />
                 <div>
-                    <input type="checkbox" class="form control mt-4 ms-5">
+                    <input type="checkbox" class="form control mt-4 ms-5" name="rem" value="true">
                     <label>Remember me</label>
                 </div>
 
@@ -48,6 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <?php
                 if ($err) {
                     echo $err;
+                    $err = "";
                 }
                 ?>
             </div>

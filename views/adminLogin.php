@@ -48,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <div class="d-flex justify-content-evenly mt-4">
                 <input type="submit" class=" btn btn-primary button" value="Log in" />
-                <a class="text-decoration-none btn btn-outline-dark " style="width: 80px;" href="adminLogin.php">User</a>
+                <a class="text-decoration-none btn btn-outline-dark " style="width: 80px;" href="userlogin.php">User</a>
             </div>
         
             
