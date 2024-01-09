@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Job Dashboard | By Code Info</title>
-  <link rel="stylesheet" href="index.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../index.css">
   <!-- Font Awesome Cdn Link -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>Document</title>
 </head>
 <body>
- 
-    <nav>
+<nav>
       <div class="navbar">
           <h4 class="navbar-brand text-muted">Dashboard</h4>
         <ul class="ul">
@@ -19,7 +19,7 @@
             <span class="nav-item">Dashboard</span>
           </a>
           </li>
-          <li><a href="#" class="nav-link">
+          <li><a href="http://localhost/ecommerce_php/dashboard/customers/" class="nav-link">
             <i class="fas fas fa-user"></i>
             <span class="nav-item">Customers</span>
           </a>
@@ -53,13 +53,5 @@
         </ul>
     </div>
     </nav>
-
-    <section class="main">
-       
-    </section>
-  
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js">
-
-</script>
 </body>
 </html>

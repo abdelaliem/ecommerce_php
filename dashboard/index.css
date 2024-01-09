@@ -1,0 +1,196 @@
+.div{
+margin-left: 35%;
+margin-top: 7%;
+
+}
+.form{
+    width: 100%;
+    padding: 5%;
+}
+ 
+.pages{
+  margin-top: 60px;
+  
+}
+ .logo{
+    width: 10%;
+ }
+ .car{
+  margin-top: 700px;
+ }
+ .desc{
+  width: 30%;
+ }
+ .addproduct{
+  margin-top: 300px;
+ }
+ .table{
+  height: 75%;
+  border-color: #d2bdb7;
+  color:#a85d24;
+  padding-top: 1%;
+ }
+ .tr{
+  color: #a85d24;
+ }
+ 
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+    *{
+      margin: 0;
+      padding: 0;
+      outline: none;
+      border: none;
+      text-decoration: none;
+      list-style: none;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+ .badge{
+  background-color:#ba8b7d;
+ }
+ .table:hover{
+  background-color: #edd9ca;
+ }
+ .addcat{
+  background-color:#e5c3b4;
+  color:#fdfdf9;
+ }
+ .updatecat{
+  background-color:	#ba8b7d;
+  color:white;
+ }
+ .form-control:hover{
+  background-color: #f3ebe922;
+  border-color: wheat;
+  box-shadow: none;
+  
+ }
+ .option:hover::after{
+background: darkkhaki;
+ 
+ }
+ .del{
+  background-color: #EC7063 ;
+  color:white;
+ }
+ .del:hover{
+  background-color: #E74C3C  ;
+  color:white;
+ }
+ .deltext{
+  color:#E74C3C;
+ }
+ option:checked{
+  color: aliceblue;
+  background-color: #ba8b7d;
+ }
+select{
+  background-color: #a85d24;
+  box-shadow: none;
+}
+ .form-select:focus{
+  border-color:wheat;
+  box-shadow: none;
+ }
+ .form-select:hover{
+  background-color: #f3ebe922;
+  border-color: wheat;
+  box-shadow: none;
+  
+ }
+ .form-control:focus{
+  border-color:wheat;
+  box-shadow: none;
+ }
+ .addcat:hover{
+  background-color: #f0bca6;
+  color:whitesmoke;
+ }
+ .updatecat:hover{
+  background-color: #f0bca6;
+  color:whitesmoke;
+ }
+ .accordion-button:hover{
+  background-color: #a85d240a;
+   
+ }
+ .buttonsdiv{
+  color: black;
+ }
+ .page-item{
+   margin-left: 0.8%;
+ }
+ .page-link{
+color: 	whitesmoke;
+background-color:		#e5c3b4;
+ 
+ }
+ .page-link:hover{
+  color: #bfc49f;
+ }
+  body{
+    height: 550px;
+     
+  }
+    .container{
+      height: 100%;
+    }
+   
+    .tr{
+      height: 10px;
+    }
+    .content{
+      width: 80%;
+      margin-left: 17%;
+      margin-top: 0px;
+      height: 100%;
+    }
+    .navbar-brand{
+        margin-left: 20%;
+    }
+    .ul{
+      
+        margin-left: 0px;
+    }
+ 
+    nav{
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 15%;
+      height: 100%;
+      background-color:	#edd9ca
+      ;
+      
+    }
+    .navbar{
+      width: 100%;
+      margin: 0px;
+      height: 100%;
+      
+    }
+    
+    
+    
+    li{
+      padding-bottom: 2rem;
+    }
+    li a{
+      font-size: 16px;
+      color: rgb(85, 83, 83);
+    }
+   
+    nav i{
+      width: 50px;
+      font-size: 18px;
+      text-align: center;
+    }
+    
+    .logout{
+      position: absolute;
+      bottom: 20px;
+    }
+    
+    
+     

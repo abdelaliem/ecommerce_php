@@ -31,4 +31,11 @@ class user
             }
          
     }
+    public function get_users(){
+        $query = "SELECT * FROM `user` ";
+        $data = $this -> conn -> conn->query ($query)->fetch_all(MYSQLI_ASSOC);
+        return $data;
+    }
+     
+    
 }

@@ -1,3 +1,14 @@
+     <?php 
+                    $id= $_GET['id'];
+                    require "../modules/Connection.php";
+                    $con = new Connection();
+                    require "../modules/product.php";
+                    $product = new product($con);
+                    $data = $product->GetProducts($id);
+                    print_r($data);
+                    echo $data[0]['product_img'];
+                     
+     ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,7 +36,11 @@
         <div class="outer">
             <div class="left-side-img d-flex m-5">
                 <section class="bigger-one-img w-50">
-                    <img src="../img/Asgaard sofa 3.png" alt="" />
+               
+                     <?php
+                     $img = $data[0]['product_img'];
+                     echo "<img src='$img'>";
+                     ?>
                 </section>
                 <section class="w-50">
                     <h1>Asgaard sofa</h1>
