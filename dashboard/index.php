@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Job Dashboard | By Code Info</title>
+  <title>Dashboard</title>
   <link rel="stylesheet" href="index.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
   <!-- Font Awesome Cdn Link -->
@@ -9,7 +9,7 @@
   
 </head>
 <body>
- 
+  
     <nav>
       <div class="navbar">
           <h4 class="navbar-brand text-muted">Dashboard</h4>
@@ -53,7 +53,9 @@
         </ul>
     </div>
     </nav>
-
+    <?php 
+    require("../views/navbar.php")
+  ?>
     <section class="main">
        
     </section>

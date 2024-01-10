@@ -50,8 +50,8 @@
         <div>
             <img src="../img/logo.png" alt="">
         </div>
-        <h1>shop</h1>
-        <div class="path">Home > <span style=" font-weight: normal;">Shop</span> </div>
+        <h1><?php if(isset($title))echo$title ?></h1>
+        <div class="path">Home > <span style=" font-weight: normal;"><?php if(isset($title))echo$title ?></span> </div>
     </div>
 </body>
 
