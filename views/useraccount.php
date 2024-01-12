@@ -12,9 +12,10 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container-fluid">
+        <div class="container">
 
-        <?php
+            <?php
         session_start();
         if (isset($_SESSION["email"])) {
             $title = "MyAccount";
@@ -24,8 +25,9 @@
         } else {
             header("location: userlogin.php");
         }
-
+        
         ?>
+        </div>
 
         <nav class="nav1">
             <div class="navbar">

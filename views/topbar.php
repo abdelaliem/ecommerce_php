@@ -18,7 +18,7 @@
             flex-direction: column;
         }
 
-        h1 {
+        .h1 {
             margin: 10px 0;
             color: #000;
             font-family: Poppins;
@@ -50,7 +50,7 @@
         <div>
             <img src="../img/logo.png" alt="">
         </div>
-        <h1><?php if(isset($title))echo$title ?></h1>
+        <h1 class="h1"><?php if(isset($title))echo$title ?></h1>
         <div class="path">Home > <span style=" font-weight: normal;"><?php if(isset($title))echo$title ?></span> </div>
     </div>
 </body>

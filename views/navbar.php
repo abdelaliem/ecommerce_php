@@ -12,7 +12,7 @@
 
 <body>
    
-        <nav class="navbar sticky-top navbar-expand-lg">
+        <nav class="navbar navbar-expand-lg">
             <div class="container">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar">
                     <span class="navbar-toggler-icon"></span>
@@ -46,7 +46,7 @@
                 </div>
             </div>
         </nav>
-  
+    <script src=""></script>
 </body>
 
 </html>
