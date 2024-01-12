@@ -38,8 +38,14 @@ class user
             return "the email or password is not correct please try again";
         }
     }
-    public function get_users()
+    public function get_users($email=0)
+
     {
+        if($email){
+        $query = "SELECT `user_id` FROM `user` WHERE `email`='$email'";
+        $data =$this -> conn ->conn-> query($query) -> fetch_all(MYSQLI_ASSOC);
+        return $data;
+        }
         $query = "SELECT * FROM `user` ";
         $data = $this->conn->conn->query($query)->fetch_all(MYSQLI_ASSOC);
         return $data;
