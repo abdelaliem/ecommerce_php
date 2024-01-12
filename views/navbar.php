@@ -23,10 +23,10 @@
                     </div>
                     <div class=" fw-semibold" id="navbar">
                         <div class="navbar-nav ps-5 ms-5 ">
-                            <a class="fs-5 nav-link ms-5" href="./index.php">Home</a>
-                            <a class="fs-5 nav-link ms-5" href="products.php">Shop</a>
-                            <a class="fs-5 nav-link ms-5" href="about.php">About</a>
-                            <a class="fs-5 nav-link ms-5" href="contact.php">Contact</a>
+                            <a class="fs-5 nav-link ms-5" href="http://localhost/ecommerce_php/views/index.php">Home</a>
+                            <a class="fs-5 nav-link ms-5" href="http://localhost/ecommerce_php/views/products.php">Shop</a>
+                            <a class="fs-5 nav-link ms-5" href="http://localhost/ecommerce_php/views/about.php">About</a>
+                            <a class="fs-5 nav-link ms-5" href="http://localhost/ecommerce_php/views/contact.php">Contact</a>
                         </div>
                     </div>
                     <div class="navbar-nav">
@@ -34,7 +34,7 @@
                             <span class="fs-2 material-symbols-outlined">
                                 search
                             </span></a>
-                        <a class="nav-link mx-3" href="userLogin.php">
+                        <a class="nav-link mx-3" href="http://localhost/ecommerce_php/views/userLogin.php">
                             <span class="fs-2 material-symbols-outlined">
                                 person
                             </span></a>

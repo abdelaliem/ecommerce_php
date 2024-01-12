@@ -29,7 +29,7 @@ class order extends product
                 return "sorry this product is not available now";
          }
          else{
-            return "sorry we don't have this amount of that product";
+            return "sorry we only have $product_data[0][quantity] of that product";
          }
     }
 
