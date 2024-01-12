@@ -11,9 +11,9 @@
 </head>
 
 <body>
-    <div class="container">
-        <nav class="navbar navbar-expand-lg">
-            <div class="container-fluid">
+   
+        <nav class="navbar sticky-top navbar-expand-lg">
+            <div class="container">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -46,7 +46,7 @@
                 </div>
             </div>
         </nav>
-    </div>
+  
 </body>
 
 </html>

@@ -4,59 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../index.css">
+    <link rel="stylesheet" href="../index.css?v=<?php echo time(); ?>">
   <!-- Font Awesome Cdn Link -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <title>Document</title>
 </head>
 <body>   
- 
-<nav>
-      <div class="navbar">
-          <h4 class="navbar-brand text-muted">Dashboard</h4>
-        <ul class="ul">
-          <li><a href="http://localhost/ecommerce_php/dashboard/" class="nav-link">
-          <i class="fa-solid fa-gauge-high"></i>
-            <span class="nav-item">Dashboard</span>
-          </a>
-          </li>
-          <li><a href="http://localhost/ecommerce_php/dashboard/customers/" class="nav-link">
-            <i class="fas fas fa-user"></i>
-            <span class="nav-item">Customers</span>
-          </a>
-          </li>
-          <li><a href="http://localhost/ecommerce_php/dashboard/product?page=1" class="nav-link">
-            <i class="fas fa-chart-bar"></i>
-            <span class="nav-item">Products</span>
-          </a>
-          </li>
-          <li><a href="http://localhost/ecommerce_php/dashboard/category?page=1" class="nav-link">
-          <i class="fa-solid fa-layer-group"></i>
-            <span class="nav-item">Category</span>
-          </a>
-          </li>
-          <li><a href="http://localhost/ecommerce_php/dashboard/order" class="nav-link">
-          <i class="fa-solid fa-bag-shopping"></i>
-            <span class="nav-item">Orders</span>
-          </a>
-          </li>
-          <li><a href="http://localhost/ecommerce_php/dashboard/admin" class="nav-link">
-          <i class="fa-solid fa-user-tie"></i>
-            <span class="nav-item">Admins</span>
-          </a>
-          </li>
-          <li><a href="#" class="nav-link">
-            <i class="fas fas fa-user"></i>
-            <span class="nav-item">acount</span>
-          </a>
-          </li>
+ <div class='container'>
+  <div calss='row g-0'>
+  <?php require "../../views/sidebar.php";?>
           
-        </ul>
-    </div>
-    </nav>
-  <div class="container mt-5">
-
-<div class='content mt-5'>
+<div class='content h-100 col mt-4'>
+  <div class='product h-100 '>
 <?php
 spl_autoload_register(function($class){
   require "../../modules/".$class.=".php";
@@ -89,19 +48,19 @@ if(isset($_GET['page'])){
 //showing products
 $data = $product->Get7Products($start,$product_per_page);?>
 
-<table class='table  '>
-<tr class='tr'>
-<th class='text-muted  '> Product Name </th>
-<th class='text-muted  '> Price </th>
-<th class='text-muted  '> Quantity </th>
-<th   class='text-muted desc  '> Description</th>
-<th class='text-muted  '>Status</th>
-<th class='text-muted  '> Category Name </th>
-<th class='text-muted  '> Action </th>
+<table class='table   w-100 h-100'>
+<tr class='tr mt-5 'scope='row'>
+<th class='text-muted 'scope='col'> Product Name </th>
+<th class='text-muted  ' scope='col'> Price </th>
+<th class='text-muted  ' scope='col'> Quantity </th>
+<th   class='text-muted    ' scope='col'> Description</th>
+<th class='text-muted  ' scope='col'>Status</th>
+<th class='text-muted  ' scope='col'> Category Name </th>
+<th class='text-muted  ' scope='col'> Action </th>
 </tr>
 <?php
 foreach ($data as $row => $RowData) {
-    echo "<tr class='tr  '>";
+    echo "<tr class='tr   ' scope='row'>";
     foreach ($RowData as $key => $value) {
       $id = $RowData['product_id'];
       if ($key == "product_id" or $key == "updated_on" or $key == "created_at" or $key == "product_img") {
@@ -109,10 +68,10 @@ foreach ($data as $row => $RowData) {
       }
       if ($key == 'category_id') {
         $CategoryName = $con->conn->query("SELECT `category_name` FROM `category` WHERE `category_id` = $value ")->fetch_assoc()['category_name'];
-        echo "<td class='tr  '>$CategoryName</td>";
+        echo "<td class='tr  ' scope='col'>$CategoryName</td>";
         continue;
       }
-      echo "<td class='tr  '>$value</td>";
+      echo "<td class='tr  ' scope='col'>$value</td>";
     }
     $name = "name$id";
     echo "<td>
@@ -149,6 +108,7 @@ echo " <a type='button' class='btn updatecat'  href='http://localhost/ecommerce_
     
   }
   echo "</table>";
+  echo "</div>";
  
 ?> 
   
@@ -156,7 +116,7 @@ echo " <a type='button' class='btn updatecat'  href='http://localhost/ecommerce_
  <?php
   $name = "add";
 
-  echo "<button type='button' data-bs-toggle='modal' class='btn addcat mt-2' data-bs-target='#$name'>
+  echo "<button type='button' data-bs-toggle='modal' class='btn addcat mt-4' data-bs-target='#$name'>
   Add Product
 </button>
 <div class='modal-lg modal fade addform' id=$name tabindex='-1'   aria-labelledby=$name aria-hidden='true'>
@@ -260,6 +220,7 @@ echo  "
     </div>
 
 </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>  

@@ -70,7 +70,6 @@ class order extends product
     public function DeleteOrder($order_id){
         $query = "DELETE FROM `order` WHERE `order_id`=$order_id";
         $data =$this -> GetOrders($order_id) ;
-        print_r($data);
         $quantity = $data[0]['quantity'];
         $product_data =$this -> GetProducts($data[0]['product_id']);
         $product_quantity = $product_data[0]['quantity']+$quantity;
@@ -78,9 +77,7 @@ class order extends product
         $this -> con -> conn -> query($query);
     }
 }
-$con = new Connection();
-$x= new order($con);
-$x -> DeleteOrder(5);
+ 
 
 
  
