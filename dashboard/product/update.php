@@ -40,15 +40,15 @@
      
       <div class='col-md-6 mt-3'>
         <label for='inputEmail4' class='form-label mt-2'>Name</label>
-        <input type='text' class='form-control' name='name' value=<?php echo"$name";?> required>
+        <input type='text' class='form-control' name='name' value="<?php echo"$name";?>" required>
       </div>
       <div class='col-md-6 mt-3'>
         <label for='inputPassword4' class='form-label mt-2'>image</label>
-        <input type='text' class='form-control' name='image' value=<?php echo"$img";?> required>
+        <input type='text' class='form-control' name='image' value="<?php echo"$img";?>" required>
       </div>
       <div class='col-7 mt-3'>
         <label for='inputAddress' class='form-label mt-2'>Description</label>
-        <input type='textarea' class='form-control' name='desc' value=<?php echo $desc ;?> required >
+        <input type='textarea' class='form-control' name='desc' value="<?php echo $desc ;?>" required >
       </div>
       <div class='col-4 mt-3'>
         <label for='inputAddress2' class='form-label mt-2'>Quantity</label>
