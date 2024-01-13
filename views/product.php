@@ -5,8 +5,18 @@
                     require "../modules/Connection.php";
                     $con = new Connection();
                     require "../modules/product.php";
+                    require "../modules/Data.php";
                     $product = new product($con);
                     $data = $product->GetProducts($id);
+                    $table = new Data($con);
+                    $tabledata = $table -> GetData();
+                    $res =1;
+                    foreach ($tabledata as $key => $row) {
+                      if($row['product_id']==$id){
+                        $res = 0;
+                        break;
+                      }
+                    }
          }     
          else{
           $id = 32;
@@ -16,7 +26,7 @@
                     $product = new product($con);
                     $data = $product->GetProducts($id);
          }  
-
+          
      ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,7 +35,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="./design/bootstrap-5.0.2-dist/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="./design/bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" />
   <title>Shop!</title>
   <style>
@@ -38,9 +47,8 @@
 
 
 <body>
+  <?php  require"./navbar.php"?>
     <div class="container">
-      <?php  require"./navbar.php"?>
-
         <div class="outer">
           <form method='post' action="http://localhost/ecommerce_php/views/cart.php/?id=<?php echo $id?>">
             <div class="left-side-img d-flex m-5">
@@ -63,26 +71,56 @@
                     <br />
                     <br />
         <div class="d-flex mt-4">
-          <div class="d-flex w-25 align-items-center p-1 justify-content-between rounded" style="border: 1px solid gray; margin-right: 50px;">
-            <button id="MinusButton" class="btn" type='button'>-</button>
-            <input id="count" value=1 name='quantity' class="fs-4 w-25" >  
-            <button id="PlusButton" class="btn" type='button'>+</button>
+         
+          <?php  
+          if($res){
+            echo "<div class='d-flex w-25 align-items-center p-1 justify-content-between rounded' style='border: 1px solid gray; margin-right: 50px;'>
+            <button id='MinusButton' class='btn' type='button'>-</button>
+            <input id='count' value=1 name='quantity' class='fs-4 w-25' >  
+            <button id='PlusButton' class='btn' type='button'>+</button>
 
-          </div>
-          <div>
-            <button class="btn btn-outline-dark p-2" type='submit' style="width: 150px; height: 50px;"  >
+          </div>";
+          if(empty($_SESSION['email']) ){
+            $name='del';
+          echo "<div><span class='mx-3 mt-2 deltext col ' type='button' data-bs-toggle='modal' data-bs-target='#$name'>
+          Add to cart
+          </span>
+          <div class='modal fade' id=$name tabindex='-1'   aria-labelledby=$name aria-hidden='true'>
+            <div class='modal-dialog' >
+              <div class='modal-content'>
+                <div class='modal-header'>
+                  <h5 class='modal-title' id=$name>Alert</h5>
+                  <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'>
+                  </button>
+                </div>
+                <div class='modal-body'>
+                  you have to log in first.
+                </div>
+                <div class='modal-footer'>
+                  <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Cancel</button>
+                  <a type='button' href='http://localhost/ecommerce_php/views/userLogin.php' class='btn btn-primary'>Log in</a>
+                </div>
+              </div>
+            </div>
+          </div> ";
+          }
+          else{
+            echo "<div><button class='btn btn-outline-dark p-2' type='submit' style='width: 150px; height: 50px;'  >
               Add To Cart
-      </button>
+            </button>
+            </div>";
+          }
+
+    }
+    else{
+      echo "<a class='btn btn-outline-dark p-2'   style='width: 150px; height: 50px;' href='http://localhost/ecommerce_php/views/delcart.php/?id=$id' >
+      remove from cart
+      </a>";
+    }
+      ?>
           </div>
         </div>
-        <?php
-      if($_SESSION['res']==1){
-       echo"<p class='text-danger'>you're already add this product</p>";
-       }
-       else{
-        echo "";
-       }
-       ?>
+    
       </div>
   </form>
     </div>
@@ -146,6 +184,9 @@
     });
     
   </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js">
+
+</script>
  
 </body>
 

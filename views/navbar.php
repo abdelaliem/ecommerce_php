@@ -1,3 +1,20 @@
+<?php
+ 
+spl_autoload_register(function($class){
+    require "../modules/".$class.=".php";
+});
+ 
+if(isset($_SESSION['email']))
+{
+$con = new Connection();
+$tabledata = new Data($con);
+$user  = new user($con);
+$email= $_SESSION['email'];
+$user_data = $user -> get_users($email);
+$user_id=$user_data[0]['user_id'];
+$datao =$tabledata->GetData($user_id); 
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,8 +28,7 @@
 </head>
 
 <body>
-   
-        <nav class="navbar navbar-expand-lg">
+<nav class="navbar navbar-expand-lg">
             <div class="container">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar">
                     <span class="navbar-toggler-icon"></span>
@@ -38,10 +54,12 @@
                             <span class="fs-2 material-symbols-outlined">
                                 person
                             </span></a>
-                        <a class="nav-link mx-3" href="#">
+                        <a class="nav-link mx-3" href="http://localhost/ecommerce_php/views/cart.php">
                             <span class="fs-2 material-symbols-outlined">
                                 shopping_cart
-                            </span></a>
+                            </span>
+                           <?php if(isset($datao)){echo count($datao);}?>
+                        </a>
                     </div>
                 </div>
             </div>

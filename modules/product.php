@@ -56,5 +56,10 @@ class product
         $data = $result->fetch_all(MYSQLI_ASSOC);
         return $data;
     }
+    public function GetAvailableProducts(){
+        $query = "SELECT * FROM `products` WHERE `status` = 'available'";
+        $data = $this -> con -> conn -> query($query)->fetch_all(MYSQLI_ASSOC);
+        return $data;
+    }
 }
 // 1

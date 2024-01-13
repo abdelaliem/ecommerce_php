@@ -18,7 +18,7 @@
             $con = new Connection();
             $productobj = new product($con);
 
-            $products = $productobj->GetProducts();
+            $products = $productobj->GetAvailableProducts();
 
             if (!empty($products)) {
                 foreach ($products as $product) 
