@@ -10,58 +10,71 @@
     <link rel="stylesheet" href="./style/index.css">
     <title>Account</title>
 </head>
+<?php
+session_start();
+require("../modules/product.php");
+require("../modules/Connection.php");
+$conn = new Connection;
+$product = new product($conn->conn);
+$data = $product->GetallProducts();
+// print_r($data);
+?>
 
-<body>
-    <div class="container-fluid">
+<body style="background-color: #eee;">
+    <div class="container-fluid p-0">
         <div class="container">
 
             <?php
-        session_start();
-        if (isset($_SESSION["email"])) {
-            $title = "MyAccount";
-            require('../views/navbar.php');
-            // require('../views/topbar.php');
-            echo $_SESSION["email"];
-        } else {
-            header("location: userlogin.php");
-        }
-        
-        ?>
+            if (isset($_SESSION["email"])) {
+                $title = "MyAccount";
+                require('../views/navbar.php');
+                // require('../views/topbar.php');
+                // echo $_SESSION["email"];
+            } else {
+                header("location: userlogin.php");
+            }
+
+            ?>
         </div>
+        <div class="container-fluid d-flex justify-content-between">
 
-        <nav class="nav1">
-            <div class="navbar">
-                <h4 class="navbar-brand navbar-brand1">User Dashboard</h4>
-                <ul class="ul">
-                    <li><a href="http://localhost/ecommerce_php/dashboard/" class="nav-link">
-                            <i class="fa-solid fa-gauge-high"></i>
-                            <span class="nav-item">Dashboard</span>
-                        </a>
-                    </li>
-                    <li><a href="#" class="nav-link">
-                            <i class="fas fas fa-user"></i>
-                            <span class="nav-item">Payment Methods</span>
-                        </a>
-                    </li>
-                    <li><a href="http://localhost/ecommerce_php/views/product" class="nav-link">
-                            <i class="fas fa-chart-bar"></i>
-                            <span class="nav-item">Products</span>
-                        </a>
-                    </li>
-                    <li><a href="http://localhost/ecommerce_php/dashboard/order" class="nav-link">
-                            <i class="fa-solid fa-bag-shopping"></i>
-                            <span class="nav-item">Orders</span>
-                        </a>
-                    </li>
-                    <li><a href="#" class="nav-link">
-                            <i class="fas fas fa-user"></i>
-                            <span class="nav-item">Account</span>
-                        </a>
-                    </li>
+            <?php
+            require("./usersidebar.php");
 
-                </ul>
+            ?>
+            <div class="m-5 mb-2 bg-light w-100 mainu d-flex flex-column">
+                <h2 class="mb-5">Best Deals</h2>
+                <div class="d-flex">
+                    <div class="card card0 w-100 mx-2">
+                        <div class="div1">
+                            <img src="<?php echo $data[0]["product_img"] ?>" class="" alt="...">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title"><?php echo $data[0]["product_name"] ?></h5>
+                            <p class="card-text"><?php echo $data[0]["description"] ?></p>
+                            <a href="#" class="btn btn-primary">Buy Now</a>
+                        </div>
+                    </div>
+                    <div class="card card0 w-100 mx-2">
+                    <div class="div1">
+                            <img src="<?php echo $data[1]["product_img"] ?>" class="" alt="...">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title"><?php echo $data[1]["product_name"] ?></h5>
+                            <p class="card-text"><?php echo $data[1]["description"] ?></p>
+                            <a href="#" class="btn btn-primary">Buy Now</a>
+                        </div>
+                    </div>
+
+                </div>
             </div>
-        </nav>
+        </div>
+        <div class="container">
+
+            <?php
+            require("./footer.php")
+            ?>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js">
