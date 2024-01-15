@@ -40,8 +40,7 @@
     </div>
 
     <div class="container-fluid " style="background-color: #FAF4F4;">
-        <div class="container d-flex justify-content-center p-5">
-
+        <div class="container d-flex justify-content-center p-5 flex-wrap">
             <div class="one p-5">
                 <img src="../img/Granite square side table 1.png" alt="" />
                 <h3 class="fw-bold">Side table</h3>
@@ -55,70 +54,55 @@
         </div>
     </div>
     <br />
-    <div class="container">
-        <center>
+    <div class="container-fluid">
+        <div class="text-center">
             <h1>Top Picks For You</h1>
             <br />
-            <h5 style="opacity: 50%">
-                Find a bright ideal to suit your taste with our great selection of
-                suspension, floor and table lights.
-            </h5>
-        </center>
+            <h3 style="opacity: 50%">
+                Find a bright ideal to suit your taste with our great selection of suspension, floor, and table lights.
+            </h3>
+        </div>
         <br />
-        <div class=" d-flex row-cols-4 align-items-center">
-            <section class="first p-3">
-                <div class="row">
-                    <img src="../img/Trenton modular sofa_3 1.png" alt="" class="w-" />
-                </div>
-                <br />
-                <div class="row">
-                    <p class="pe-5">Trenton modular sofa_3</p>
-                    <br />
-                    <h5>Rs. 25,000.00</h5>
-                </div>
-            </section>
+        <div class="container">
+            <div class="row">
+                <section class="first p-3 col-md-6 col-lg-3">
+                    <div class="text-center">
+                        <img src="../img/Trenton modular sofa_3 1.png" alt="" class="img-fluid" />
+                        <p class="mt-3">Trenton modular sofa_3</p>
+                        <h5>Rs. 25,000.00</h5>
+                    </div>
+                </section>
 
-            <section class="second p-3">
-                <div class="row">
-                    <img src="../img/Granite dining table with dining chair 1.png" alt="" />
-                </div>
-                <br />
-                <div class="row">
-                    <p class="pe-5">Granite dining table with dining chair</p>
+                <section class="second p-3 col-md-6 col-lg-3">
+                    <div class="text-center">
+                        <img src="../img/Granite dining table with dining chair 1.png" alt="" class="img-fluid" />
+                        <p class="mt-3">Granite dining table with dining chair</p>
+                        <h5>Rs. 25,000.00</h5>
+                    </div>
+                </section>
 
-                    <br />
+                <section class="third p-3 col-md-6 col-lg-3">
+                    <div class="text-center">
+                        <img src="../img/Outdoor bar table and stool 1.png" alt="" class="img-fluid" />
+                        <p class="mt-3">Outdoor bar table and stool</p>
+                        <h5>Rs. 25,000.00</h5>
+                    </div>
+                </section>
 
-                    <h5>Rs. 25,000.00</h5>
-                </div>
-            </section>
-
-            <section class="third p-3">
-                <div class="row">
-                    <img src="../img/Outdoor bar table and stool 1.png" alt="" />
-                </div>
-                <br />
-                <div class="row">
-                    <p class="pe-5">Outdoor bar table and stool</p>
-
-                    <h5>Rs. 25,000.00</h5>
-                </div>
-            </section>
-
-            <section class="fourth p-3">
-                <div class="row">
-                    <img src="../img/Plain console with teak mirror 1.png" alt="" />
-                </div>
-                <br />
-                <div class="row">
-                    <p class="pe-5">Plain console with teak mirror</p>
-
-                    <h5>Rs. 25,000.00</h5>
-                </div>
-            </section>
+                <section class="fourth p-3 col-md-6 col-lg-3">
+                    <div class="text-center">
+                        <img src="../img/Plain console with teak mirror 1.png" alt="" class="img-fluid" />
+                        <p class="mt-3">Plain console with teak mirror</p>
+                        <h5>Rs. 25,000.00</h5>
+                    </div>
+                </section>
+            </div>
         </div>
 
-        <div class="m-3 text-center">
-            <a class="btn0" href="products.php">View More!</a>
+        <br />
+        <br />
+        <div class="text-center m-5">
+            <a class="btn0">View More!</a>
         </div>
     </div>
     <div class="container-fluid" style="background-color: rgba(250, 244, 244, 1);">
