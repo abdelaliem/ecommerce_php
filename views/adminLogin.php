@@ -15,17 +15,18 @@ $con = new Connection();
 $err='';
 require "../modules/Admin.php";
 $admin = new admin($con);
-if(isset($_SESSION['username'])){
-    $_SESSION['username']=$_POST['username'];
-    $_SESSION['password']=$_POST['password'];
-}
+ 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
      $res = $admin->Access_check($_POST);
+    $_SESSION['username']=$_POST['username'];
+    $_SESSION['password']=$_POST['password'];
+ 
      if($res){
         header("location:http://localhost/ecommerce_php/dashboard/");
      }
      else{
          $err='sorry you do not have the access to dashboard';
+         session_destroy();
      }
 }
 ?>

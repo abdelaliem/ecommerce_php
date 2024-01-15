@@ -12,15 +12,21 @@
 <body>   
  <div class='container'>
   <div calss='row g-0'>
-  <?php require "../../views/sidebar.php";?>
+  <?php 
+  spl_autoload_register(function($class){
+  require "../../modules/".$class.=".php";
+});
+ require "../../views/sidebar.php";
+ if(!isset($_SESSION['username'])){
+  header('location:http://localhost/ecommerce_php/views/adminLogin.php');
+}
+
+ ?>
           
 <div class='content h-100 col mt-4'>
   <div class='product h-100 '>
 <?php
-spl_autoload_register(function($class){
-  require "../../modules/".$class.=".php";
-});
- 
+
 if($_SERVER['REQUEST_METHOD']=="POST"){
  $con = new Connection();
  if(trim($_POST['name']) && trim($_POST['image']) && trim($_POST['desc'])){

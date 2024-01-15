@@ -26,16 +26,28 @@
             <span class="nav-item">Orders</span>
           </a>
           </li>
-          <li><a href="http://localhost/ecommerce_php/dashboard/admin" class="nav-link">
-          <i class="fa-solid fa-user-tie"></i>
-            <span class="nav-item">Admins</span>
+          <?php 
+           session_start();
+          $con = new Connection();
+          $admin = new Admin($con);
+          $value = $admin -> Check_Admin($_SESSION['username']);
+          if($value){
+         echo" <li><a href='http://localhost/ecommerce_php/dashboard/admin' class='nav-link'>
+          <i class='fa-solid fa-user-tie'></i>
+            <span class='nav-item'>Admins</span>
+          </a>
+          </li>";
+        }
+          ?>
+          <li><a href="http://localhost/ecommerce_php/views/" class="nav-link">
+          <i class="fa-solid fa-window-maximize"></i>
+            <span class="nav-item">website</span>
           </a>
           </li>
-          <li><a href="#" class="nav-link">
-            <i class="fas fas fa-user"></i>
-            <span class="nav-item">acount</span>
+          <li><a href="http://localhost/ecommerce_php/dashboard/logout.php" class="nav-link mt-5">
+          <i class="fa-solid fa-right-from-bracket"></i>
+            <span class="nav-item">logout</span>
           </a>
           </li>
-          
         </ul>
     </div>

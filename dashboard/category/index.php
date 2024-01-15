@@ -44,7 +44,13 @@
 ?>
  <div class='container'>
   <div class='row'>
-  <?php require "../../views/sidebar.php";?>
+  <?php
+   require "../../views/sidebar.php";
+   if(!isset($_SESSION['username'])){
+    header('location:http://localhost/ecommerce_php/views/adminLogin.php');
+  }
+  
+   ?>
 <div class="content col  mt-5 ">
   <h3 class="text-muted row">your categories </h3>
 

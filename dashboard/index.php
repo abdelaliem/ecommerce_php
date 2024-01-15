@@ -1,3 +1,4 @@
+ 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,14 +23,18 @@
  $NumC = count($category->GetCategory());
  $user = new user($con);
  $NumU = count($user -> get_users());
+ 
  ?>
  <div class='container-fluid h-100 mx-0'>
  <div class='row  h-100'>
- <?php require "../views/sidebar.php";?>
+ <?php require "../views/sidebar.php";
  
-
+ if(!isset($_SESSION['username'])){
+   header('location:http://localhost/ecommerce_php/views/adminLogin.php');
+ }
  
  
+ ?>
  <div class=' content col  '>
  <div class=' grid gx-2 g-0'>
   <a class=' info card1 container ' href='http://localhost/ecommerce_php/dashboard/order/'> 
@@ -64,7 +69,7 @@
           <p class=' col  mt-3 '>Customers <br> <?php echo $NumU?></p>
     </div>
 </a>
-
+ 
  </div>
  </div>
 </div>
