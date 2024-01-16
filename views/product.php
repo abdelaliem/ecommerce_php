@@ -1,33 +1,4 @@
-     <?php 
-     session_start();
-     if(isset($_GET['id'])){
-                    $id= $_GET['id'];
-                    require "../modules/Connection.php";
-                    $con = new Connection();
-                    require "../modules/product.php";
-                    require "../modules/Data.php";
-                    $product = new product($con);
-                    $data = $product->GetProducts($id);
-                    $table = new Data($con);
-                    $tabledata = $table -> GetData();
-                    $res =1;
-                    foreach ($tabledata as $key => $row) {
-                      if($row['product_id']==$id){
-                        $res = 0;
-                        break;
-                      }
-                    }
-         }     
-         else{
-          $id = 32;
-          require "../modules/Connection.php";
-                    $con = new Connection();
-                    require "../modules/product.php";
-                    $product = new product($con);
-                    $data = $product->GetProducts($id);
-         }  
-          
-     ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -50,6 +21,29 @@
   <?php  
     require"./navbar.php";
     // require"./topbar.php";
+    if(isset($_GET['id'])){
+      $id= $_GET['id'];
+      $con = new Connection();
+      $product = new product($con);
+      $data = $product->GetProducts($id);
+      $table = new Data($con);
+      $tabledata = $table -> GetData();
+      $res =1;
+      foreach ($tabledata as $key => $row) {
+        if($row['product_id']==$id){
+          $res = 0;
+          break;
+        }
+      }
+}     
+else{
+$id = 32;
+require "../modules/Connection.php";
+      $con = new Connection();
+      require "../modules/product.php";
+      $product = new product($con);
+      $data = $product->GetProducts($id);
+}  
   ?>
     <div class="container">
         <div class="outer">

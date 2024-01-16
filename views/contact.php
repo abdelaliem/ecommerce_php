@@ -24,7 +24,7 @@
 <body>
     <?php
     $title = "Contact";
-    require('navbar.php');
+    require"./navbar.php";
     require('topbar.php');
 
     ?>

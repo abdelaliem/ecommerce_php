@@ -26,7 +26,7 @@
 <body>
     <div class="" style="background-color: #FBEBB5;">
         <?php
-        require('navbar.php');
+        require "navbar.php";
         ?>
         <div class="container d-flex align-items-center justify-content-between">
             <div>
