@@ -1,11 +1,13 @@
 <?php
 spl_autoload_register(function($class){
-   require $class.=".php";
+   require './'.$class.=".php";
 });
-require "../modules/product.php";
+ 
  
 class order extends product 
+
   {  
+ 
     public function GetOrders($id=0){
         if($id!=0){
         $query = "SELECT * FROM `order` WHERE `order_id`=$id";
@@ -76,8 +78,29 @@ class order extends product
         $this -> UpdateProduct($data[0]['product_id'],'hi',$product_data[0]['product_img'],$product_data[0]['description'],$product_quantity,$product_data[0]['price'],$product_data[0]['category_id']);
         $this -> con -> conn -> query($query);
     }
+   public function GetTotalOrders($id){
+      $query = "SELECT * FROM `order` WHERE `user_id`=$id GROUP BY `created_at`";
+      $data = $this -> con -> conn->query($query)->fetch_all(MYSQLI_ASSOC);
+      return $data;
+   }
+   public function GetTotalProducts($id){
+      $query = "SELECT `product_id` FROM `order` WHERE `user_id`=$id ";
+      $data = $this -> con -> conn -> query($query)->fetch_all(MYSQLI_ASSOC);
+      return $data;
+   }
+   public function GetTotalSpend($id){
+      $query = "SELECT `price` FROM `order` WHERE `user_id`=$id ";
+      $data = $this -> con -> conn -> query($query)->fetch_all(MYSQLI_ASSOC);
+      $count=0;
+      foreach ($data as $key => $value) {
+          $count+=$value['price'];
+      }
+      return $count;
+   }
 }
  
-
+// $con = new Connection();
+// $order = new order($con);
+// print_r($order->GetTotalOrders(19));
 
  

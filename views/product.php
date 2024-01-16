@@ -78,13 +78,12 @@
             <button id='MinusButton' class='btn' type='button'>-</button>
             <input id='count' value=1 name='quantity' class='fs-4 w-25' >  
             <button id='PlusButton' class='btn' type='button'>+</button>
-
           </div>";
           if(empty($_SESSION['email']) ){
             $name='del';
-          echo "<div><span class='mx-3 mt-2 deltext col ' type='button' data-bs-toggle='modal' data-bs-target='#$name'>
+          echo "<div><button class='btn btn-outline-dark p-2 ' type='button' data-bs-toggle='modal' data-bs-target='#$name'>
           Add to cart
-          </span>
+          </button>
           <div class='modal fade' id=$name tabindex='-1'   aria-labelledby=$name aria-hidden='true'>
             <div class='modal-dialog' >
               <div class='modal-content'>
@@ -105,7 +104,7 @@
           </div> ";
           }
           else{
-            echo "<div><button class='btn btn-outline-dark p-2' type='submit' style='width: 150px; height: 50px;'  >
+            echo "<div><button class='btn btn-outline-dark p-2' style='width: 150px; height: 50px;' type='submit' style='width: 150px; height: 50px;'  >
               Add To Cart
             </button>
             </div>";

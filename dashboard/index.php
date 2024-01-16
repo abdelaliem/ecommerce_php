@@ -61,7 +61,7 @@
           <p class=' col  mt-3  '>categories <br> <?php echo $NumC?></p>
     </div>
 </a>
-  <a class=' info card4 container ' href='http://localhost/ecommerce_php/dashboard/customers/'> 
+  <a class=' info card4 container ' href='http://localhost/ecommerce_php/dashboard/customers/?page=1'> 
     <div class='littlecard  row row-cols-5 w-75   '>
         <span class='icons users pt-1 text-center  px-0  col-6 mt-2 d-inline-block'>
         <i class="fa-solid fa-user"></i>

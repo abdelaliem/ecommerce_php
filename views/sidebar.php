@@ -6,7 +6,7 @@
             <span class="nav-item">Dashboard</span>
           </a>
           </li>
-          <li><a href="http://localhost/ecommerce_php/dashboard/customers/" class="nav-link">
+          <li><a href="http://localhost/ecommerce_php/dashboard/customers/?page=1" class="nav-link">
             <i class="fas fas fa-user"></i>
             <span class="nav-item">Customers</span>
           </a>
