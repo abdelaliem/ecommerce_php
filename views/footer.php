@@ -1,4 +1,4 @@
-<footer class="row ps-2 pt-5 mt-5 w-100 rr">
+<footer class="row mt-5 w-100 rr m-auto px-5">
             <div class="col-lg-3">
                 <p class="text-muted  mt-5">400 University Drive Suite 200 Coral <br>Gables, <br>FL 33134 USA
                 </p>

@@ -47,7 +47,10 @@
 
 
 <body>
-  <?php  require"./navbar.php"?>
+  <?php  
+    require"./navbar.php";
+    // require"./topbar.php";
+  ?>
     <div class="container">
         <div class="outer">
           <form method='post' action="http://localhost/ecommerce_php/views/cart.php/?id=<?php echo $id?>">

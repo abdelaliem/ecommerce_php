@@ -12,15 +12,23 @@
 require("../modules/user.php");
 require("../modules/Connection.php");
 $err = '';
-// echo $_SESSION["email"];
 session_start();
-if(isset($_SESSION["email"])) {
-    header("location: useraccount.php");
-    echo $_SESSION["email"];
+$conn = new Connection;
+if(isset($_COOKIE["sessionId"])) {
+    $user = new user($conn->conn);
+    $check = $user->get_user_session($_COOKIE["sessionId"]);
+    if($check){
+        header("location: http://localhost/ecommerce_php/views/useraccount.php");
+        // echo $_SESSION["email"];
+    }else{
+        setcookie("sessionId","",time()-1456);
+        header("Location: http://localhost/ecommerce_php/views/userlogin.php");
+    }
+}else if(isset($_SESSION["email"])){
+    header("location: http://localhost/ecommerce_php/views/useraccount.php");
 }
 else {
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $conn = new Connection;
         $user = new user($conn->conn);
         $err = $user->get_user($_POST);
     }
@@ -42,7 +50,7 @@ else {
                 <input type="submit" class="btn btn-primary mt-4 button" value="Log in" />
                 <div>
                     <input type="checkbox" class="form control mt-4 ms-5" name="rem" value="true">
-                    <label>Remember me</label>
+                    <label>Stay loged in</label>
                 </div>
 
             </div>
