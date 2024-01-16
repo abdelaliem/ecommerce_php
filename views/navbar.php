@@ -1,9 +1,9 @@
 <?php
- 
+
 spl_autoload_register(function($class){
     require "../modules/".$class.=".php";
 });
- 
+
 if(isset($_SESSION['email']))
 {
 $con = new Connection();
@@ -28,6 +28,7 @@ $datao =$tabledata->GetData($user_id);
 </head>
 
 <body>
+   
 <nav class="navbar navbar-expand-lg">
             <div class="container">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar">
@@ -54,9 +55,10 @@ $datao =$tabledata->GetData($user_id);
                             <span class="fs-2 material-symbols-outlined">
                                 person
                             </span></a>
-                        <a class="nav-link mx-3" href="http://localhost/ecommerce_php/views/cart.php">
+                        <a class="nav-link ms-3" href="http://localhost/ecommerce_php/views/cart.php">
                             <span class="fs-2 material-symbols-outlined">
                                 shopping_cart
+                            </span></a>
                             </span>
                            <?php if(isset($datao)){echo count($datao);}?>
                         </a>
@@ -66,5 +68,4 @@ $datao =$tabledata->GetData($user_id);
         </nav>
     <script src=""></script>
 </body>
-
 </html>

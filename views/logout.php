@@ -1,7 +1,6 @@
 <?php
     session_start();
     session_destroy();
-    setcookie("email","",time()-1);
-    setcookie("pass","",time()-1);
-    header("Location: userlogin.php")
+    setcookie("sessionId","",time()-1456);
+    header("Location: http://localhost/ecommerce_php/views/userlogin.php") 
 ?>

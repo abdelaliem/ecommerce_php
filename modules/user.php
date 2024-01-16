@@ -30,26 +30,44 @@ class user
         $query = "SELECT COUNT(*) FROM `user` WHERE `email` = '$email' AND `password` = '$password'";
         $result = $this->conn->query($query);
         $count = $result->fetch_all(MYSQLI_NUM);
-        // print_r ($count[0][0]) ;
         if ($count[0][0] != 0) {
             if (isset($post["rem"])) {
-                setcookie("email", $email, time() + 60);
+                $sessionId = session_id();
+                $query2 = "UPDATE `user` SET `sessionid`='$sessionId' WHERE `email` = '$email'";
+                $this->conn->query($query2);
+                setcookie("sessionId", $sessionId, time() + 60 * 60 * 60);
                 // setcookie("pass", $password, time() + 60);
             }
             session_start();
             $_SESSION["email"] = $email;
-            return header("Location: userAccount.php");
+            return header("Location:http://localhost/ecommerce_php/views/userAccount.php");
         } else {
             return "the email or password is not correct please try again";
         }
     }
-    public function get_users($email=0)
+    public function get_user_session($sessionId)
+    {
+
+        $query = "SELECT  `email` FROM `user` WHERE `sessionid` = '$sessionId'";
+
+        $result2 = $this->conn->query($query);
+        $email = $result2->fetch_all(MYSQLI_NUM);
+        if ($email[0][0] != 0) {
+            $_SESSION["email"] = $email[0][0];
+            var_dump($email);
+
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public function get_users($email = 0)
 
     {
-        if($email){
-        $query = "SELECT `user_id` FROM `user` WHERE `email`='$email'";
-        $data =$this -> conn ->conn-> query($query) -> fetch_all(MYSQLI_ASSOC);
-        return $data;
+        if ($email) {
+            $query = "SELECT `user_id` FROM `user` WHERE `email`='$email'";
+            $data = $this->conn->conn->query($query)->fetch_all(MYSQLI_ASSOC);
+            return $data;
         }
         $query = "SELECT * FROM `user` ";
         $data = $this->conn->conn->query($query)->fetch_all(MYSQLI_ASSOC);
