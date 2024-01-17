@@ -70,7 +70,7 @@
               if ($res) {
                 echo "<div class='d-flex w-25 align-items-center bg-light p-1 justify-content-between rounded' style='border: 1px solid gray; margin-right: 50px;'>
             <button id='MinusButton' class='btn' type='button'>-</button>
-            <input id='count' value=1 name='quantity' class='form-control text-center' style='width:40%;font-size:18px' >  
+            <input id='count' value=1 name='quantity' class='form-control text-center border-0 bg-light' style='width:40%;font-size:18px' >  
             <button id='PlusButton' class='btn' type='button'>+</button>
           </div>";
                 // var_dump($_SESSION);
