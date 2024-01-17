@@ -14,7 +14,7 @@ class order extends product
         $data = $this -> con -> conn -> query($query) -> fetch_all(MYSQLI_ASSOC);
         return $data ; 
      }
-    $query = "SELECT * FROM `order` ";
+    $query = "SELECT * FROM `order`  ";
     $data = $this -> con -> conn -> query($query) -> fetch_all(MYSQLI_ASSOC);
     return $data ; 
 }
@@ -24,7 +24,7 @@ class order extends product
          if($product_data[0]['quantity']>=$quantity){
             $this -> con -> conn -> query($query);
             $product_quantity = $product_data[0]['quantity']-$quantity;
-            $this -> UpdateProduct($product_id,'hi',$product_data[0]['product_img'],$product_data[0]['description'],$product_quantity,$product_data[0]['price'],$product_data[0]['category_id']);
+            $this -> UpdateProduct($product_id,$product_data[0]['product_name'],$product_data[0]['product_img'],$product_data[0]['description'],$product_quantity,$product_data[0]['price'],$product_data[0]['category_id']);
             return ;
          }
          if($product_data[0]['status']=='not available'){
@@ -101,6 +101,42 @@ class order extends product
  
 // $con = new Connection();
 // $order = new order($con);
-// print_r($order->GetTotalOrders(19));
+// echo "<pre>";
+// $data=$order->GetOrders();
+echo "</pre>";
+// $price =0;
+// $products=[];
+// foreach ($data as $key1 => $row) {
+//    $price = $row['price'];
+//    $products=[$row['product_id'],$row['quantity']];
+//    foreach ($row as $key => $value) {
+//       if(isset($data[$key1+1]))
+//    {
+//    if($row['user_id']==$data[$key1+1]['user_id'] and $row['created_at']==$data[$key1+1]['created_at'])
+//    {
+//       $price+=$data[$key1+1]['price'];
+//       $products[]=[$data[$key1+1]['product_id'],$data[$key1+1]['quantity']];
+//       continue;
+//    }
+   
+// }else{
+//    if($row['user_id']==$data[$key1-1]['user_id'] and $row['created_at']==$data[$key1-1]['created_at'])
+//    {
+//       $price+=$data[$key-1]['price'];
+//       $products[]=[$row['product_id'],$row['quantity']];
+//       continue;
+//    }
+  
+// }
+//    }
+//     echo "<h1>products</h1>";
+//    echo "<td>$row[user_id]</td><br>";
+//    if($price){ echo"<td>$price</td><br>";} 
+//    $price=0;
+  
+//    if( $products){print_r ($products);}
+//    $products=[];
+    
+// }
 
  

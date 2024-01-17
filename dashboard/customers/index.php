@@ -27,10 +27,13 @@ $data = $userT->get_users();
 $Cdata = $userT -> Customers_data($data);
 $users_per_page = 5;
 $num_of_users = count($Cdata);
+if(isset($_SESSION['option']))
+{
 if($_SESSION['option']=='recent'){
   $data = $userT->RecentUsers();
   $Cdata = $userT -> Customers_data($data);
 }
+
 if($_SESSION['option']=='spent'){
   $Cdata = $userT->MostSpent();
 }
@@ -40,6 +43,7 @@ if($_SESSION['option']=='oldest'){
 }
 if($_SESSION['option']=='orders'){
   $Cdata = $userT -> MostOrders();
+}
 }
 if($_SERVER['REQUEST_METHOD']=='POST'){
   
