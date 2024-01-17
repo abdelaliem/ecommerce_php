@@ -29,7 +29,6 @@
       $users_per_page = 5;
       $num_of_users = count($Cdata);
       if (isset($_SESSION['option'])) {
-
         if ($_SESSION['option'] == 'recent') {
           $data = $userT->RecentUsers();
           $Cdata = $userT->Customers_data($data);
