@@ -13,13 +13,13 @@
 <div class='container-fluid h-100 mx-0'>
  <div class='row  h-100'>
  <?php 
+  session_start();
   spl_autoload_register(function($class){
   require "../../modules/".$class.=".php";
 });
- require "../../views/sidebar.php";
  if(!isset($_SESSION['username'])){
   header('location:http://localhost/ecommerce_php/views/adminLogin.php');
-}
+}require "../../views/sidebar.php";
 
  ?>
  <div class=' content col  '>

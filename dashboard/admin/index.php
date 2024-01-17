@@ -1,4 +1,5 @@
 <?php  
+session_start();
 spl_autoload_register(function($class){
   require "../../modules/".$class.=".php";
 });
@@ -27,11 +28,11 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
   <div class='product h-100  mt-5 mx-5'>
  <?php 
 
- require "../../views/sidebar.php";
+
  if($_SESSION['username']!='mai'){
   header('location:http://localhost/ecommerce_php/dashboard/');
  }
- 
+  require "../../views/sidebar.php";
  ?>
 <table class='table w-100 h-100 p-3'>
 <tr class='tr mt-5 'scope='row'>

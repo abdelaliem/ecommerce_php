@@ -13,13 +13,14 @@
   <div class='container'>
     <div class='row'>
        <?php 
+       session_start();
   spl_autoload_register(function($class){
   require "../../modules/".$class.=".php";
 });
- require "../../views/sidebar.php";
+
  if(!isset($_SESSION['username'])){
   header('location:http://localhost/ecommerce_php/views/adminLogin.php');
-}
+} require "../../views/sidebar.php";
 
  ?> 
     <?php   
@@ -33,9 +34,10 @@
         $quantity = $data[0]['quantity'];
         $category_id = $data [0]['category_id'];
         $price = $data[0]['price'];
+        $brief = $data[0]['brief'];
         if($_SERVER["REQUEST_METHOD"]=="POST")
         {
-        $product->UpdateProduct($id,$_POST['name'],$_POST['image'],$_POST['desc'],$_POST['quantity'],$_POST['price'],$_POST['cid']);
+        $product->UpdateProduct($id,$_POST['name'],$_POST['image'],$_POST['desc'],$_POST['brief'],$_POST['quantity'],$_POST['price'],$_POST['cid']);
         header('location:http://localhost/ecommerce_php/dashboard/product/');
       }
       
@@ -57,9 +59,14 @@
         <label for='inputAddress' class='form-label mt-2'>Description</label>
         <input type='textarea' class='form-control' name='desc' value="<?php echo $desc ;?>" required >
       </div>
+      
       <div class='col-4 mt-3'>
         <label for='inputAddress2' class='form-label mt-2'>Quantity</label>
         <input type='number' class='form-control' name='quantity' value=<?php echo"$quantity";?> required>
+      </div>
+      <div class='col col-7 mt-3'>
+        <label for='inputAddress' class='form-label mt-2'>Brief</label>
+        <input type='textarea' class='form-control' name='brief' value="<?php echo $brief ;?>" required >
       </div>
       <div class='col-md-4 mt-3'>
         <label for='inputCity' class='form-label mt-2'>Price</label>

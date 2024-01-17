@@ -24,7 +24,7 @@ class order extends product
          if($product_data[0]['quantity']>=$quantity){
             $this -> con -> conn -> query($query);
             $product_quantity = $product_data[0]['quantity']-$quantity;
-            $this -> UpdateProduct($product_id,$product_data[0]['product_name'],$product_data[0]['product_img'],$product_data[0]['description'],$product_quantity,$product_data[0]['price'],$product_data[0]['category_id']);
+            $this -> UpdateProduct($product_id,$product_data[0]['product_name'],$product_data[0]['product_img'],$product_data[0]['description'],$product_data[0]['brief'],$product_quantity,$product_data[0]['price'],$product_data[0]['category_id']);
             return ;
          }
          if($product_data[0]['status']=='not available'){
@@ -43,7 +43,7 @@ class order extends product
             $product_data =$this -> GetProducts($product_id);
          if($product_data[0]['quantity']>=$new_quanity){
             $product_quantity = $product_data[0]['quantity']-$new_quanity;
-            $this -> UpdateProduct($product_id,'hi',$product_data[0]['product_img'],$product_data[0]['description'],$product_quantity,$product_data[0]['price'],$product_data[0]['category_id']);
+            $this -> UpdateProduct($product_id,'hi',$product_data[0]['product_img'],$product_data[0]['description'],$product_data[0]['brief'],$product_quantity,$product_data[0]['price'],$product_data[0]['category_id']);
             $query ="UPDATE `order` SET `user_id`='$user_id',`product_id`='$product_id',`quantity`='$quantity',`price`='$price',`status`='$status' WHERE `order_id`=$order_id";
             $this -> con -> conn -> query($query);
             return;
@@ -59,7 +59,7 @@ class order extends product
             $new_quanity = $order_quantity - $quantity;
             $product_data =$this -> GetProducts($product_id);
             $product_quantity = $product_data[0]['quantity']+$new_quanity;
-            $this -> UpdateProduct($product_id,'hi',$product_data[0]['product_img'],$product_data[0]['description'],$product_quantity,$product_data[0]['price'],$product_data[0]['category_id']);
+            $this -> UpdateProduct($product_id,'hi',$product_data[0]['product_img'],$product_data[0]['description'],$product_data[0]['brief'],$product_quantity,$product_data[0]['price'],$product_data[0]['category_id']);
             $query ="UPDATE `order` SET `user_id`='$user_id',`product_id`='$product_id',`quantity`='$quantity',`price`='$price',`status`='$status' WHERE `order_id`=$order_id";
             $this -> con -> conn -> query($query);
             return;
@@ -75,7 +75,7 @@ class order extends product
         $quantity = $data[0]['quantity'];
         $product_data =$this -> GetProducts($data[0]['product_id']);
         $product_quantity = $product_data[0]['quantity']+$quantity;
-        $this -> UpdateProduct($data[0]['product_id'],'hi',$product_data[0]['product_img'],$product_data[0]['description'],$product_quantity,$product_data[0]['price'],$product_data[0]['category_id']);
+        $this -> UpdateProduct($data[0]['product_id'],'hi',$product_data[0]['product_img'],$product_data[0]['description'],$product_data[0]['brief'],$product_quantity,$product_data[0]['price'],$product_data[0]['category_id']);
         $this -> con -> conn -> query($query);
     }
    public function GetTotalOrders($id){
@@ -97,46 +97,13 @@ class order extends product
       }
       return $count;
    }
+   public function GetGroup($id){
+      $query = "SELECT `product_id`,`quantity`   FROM `order` WHERE `user_id`=$id GROUP BY `created_at` ";
+      $data = $this -> con -> conn -> query($query)->fetch_all(MYSQLI_ASSOC);
+      return $data;
+   }
 }
  
-// $con = new Connection();
-// $order = new order($con);
-// echo "<pre>";
-// $data=$order->GetOrders();
-echo "</pre>";
-// $price =0;
-// $products=[];
-// foreach ($data as $key1 => $row) {
-//    $price = $row['price'];
-//    $products=[$row['product_id'],$row['quantity']];
-//    foreach ($row as $key => $value) {
-//       if(isset($data[$key1+1]))
-//    {
-//    if($row['user_id']==$data[$key1+1]['user_id'] and $row['created_at']==$data[$key1+1]['created_at'])
-//    {
-//       $price+=$data[$key1+1]['price'];
-//       $products[]=[$data[$key1+1]['product_id'],$data[$key1+1]['quantity']];
-//       continue;
-//    }
-   
-// }else{
-//    if($row['user_id']==$data[$key1-1]['user_id'] and $row['created_at']==$data[$key1-1]['created_at'])
-//    {
-//       $price+=$data[$key-1]['price'];
-//       $products[]=[$row['product_id'],$row['quantity']];
-//       continue;
-//    }
-  
-// }
-//    }
-//     echo "<h1>products</h1>";
-//    echo "<td>$row[user_id]</td><br>";
-//    if($price){ echo"<td>$price</td><br>";} 
-//    $price=0;
-  
-//    if( $products){print_r ($products);}
-//    $products=[];
-    
-// }
-
+ 
+ 
  

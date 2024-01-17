@@ -77,9 +77,7 @@ width: 100%;
   padding: 3%;
 
  }
- tr{
-  background-color: #00bbff;
- }
+ 
  .sidebar .navbar-brand{
   color:#00bbff;
  }
@@ -117,11 +115,13 @@ background: darkkhaki;
   background-color:#b26262  ;
   color:white;
  }
+ 
  .deltext{
   color:#ff8e8e;
  }
  .deltext:hover{
   color:#b26262  ;
+  
  }
  option:checked{
   color: aliceblue;
@@ -235,4 +235,10 @@ background-color:
   }
   .secontent div{
     width: 10%;
+  }
+  
+  .productrow:hover{
+    cursor:pointer;
+    background-color:#eee;
+
   }

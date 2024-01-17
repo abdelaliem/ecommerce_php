@@ -27,9 +27,9 @@
           </a>
           </li>
           <?php 
-           session_start();
           $con = new Connection();
           $admin = new Admin($con);
+          if(isset($_SESSION['username'])){ 
           $value = $admin -> Check_Admin($_SESSION['username']);
           if($value){
          echo" <li><a href='http://localhost/ecommerce_php/dashboard/admin' class='nav-link'>
@@ -37,7 +37,7 @@
             <span class='nav-item'>Admins</span>
           </a>
           </li>";
-        }
+        }}
           ?>
           <li><a href="http://localhost/ecommerce_php/views/" class="nav-link">
           <i class="fa-solid fa-window-maximize"></i>

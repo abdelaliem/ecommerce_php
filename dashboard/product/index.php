@@ -13,17 +13,18 @@
  <div class='container'>
   <div calss='row g-0'>
   <?php 
+  session_start();
   spl_autoload_register(function($class){
   require "../../modules/".$class.=".php";
 });
- require "../../views/sidebar.php";
  if(!isset($_SESSION['username'])){
   header('location:http://localhost/ecommerce_php/views/adminLogin.php');
 }
+require "../../views/sidebar.php";
  ?>
           
-<div class='content h-100 col mt-4'>
-  <div class='product h-100 '>
+<div class='content h-100 col mt-4'   >
+  <div class='product h-100 w-100'  >
 <?php
 
 if($_SERVER['REQUEST_METHOD']=="POST"){
@@ -53,19 +54,21 @@ if(isset($_GET['page'])){
 //showing products
 $data = $product->Get7Products($start,$product_per_page);?>
 
-<table class='table w-100 h-100'>
-<tr class='tr mt-5  'scope='row'>
-<th class='text-muted 'scope='col'> Product Name </th>
-<th class='text-muted  ' scope='col'> Price </th>
-<th class='text-muted  ' scope='col'> Quantity </th>
+<table class='w-100 h-100'>
+<tr class='tr mt-5  mx-5'scope='row'>
+<th class='text-muted ' style='padding:20px ;' scope='col'> Product Name </th>
+<th class='text-muted  ' style='padding:20px;' scope='col'> Price </th>
+<th class='text-muted  ' style='padding :20px;' scope='col'> Quantity </th>
 <!-- <th class='text-muted  ' scope='col'> Brief</th> -->
-<th class='text-muted  ' scope='col'>Status</th>
-<th class='text-muted  ' scope='col'> Category Name </th>
-<th class='text-muted  ' scope='col'> Action </th>
+<th class='text-muted  ' style='padding :20px;' scope='col'>Status</th>
+<th class='text-muted  ' style='padding:20px;' scope='col'> Category Name </th>
+<th class='text-muted  ' style='padding:20px;' scope='col'> Action </th>
 </tr>
 <?php
 foreach ($data as $row => $RowData) {
-    echo "<tr class='tr   ' scope='row'>";
+    echo"<tbody   data-bs-toggle='tooltip' data-bs-placement='top' title='view more'> 
+    <tr  class='tr w-100 productrow tablerow' scope='row' data-href='http://localhost/ecommerce_php/dashboard/product/details.php?id=$RowData[product_id]' >
+    ";
     foreach ($RowData as $key => $value) {
       $id = $RowData['product_id'];
       if ($key == "product_id" or $key=='description' or $key=='brief' or $key == "updated_on" or $key == "created_at" or $key == "product_img") {
@@ -73,10 +76,10 @@ foreach ($data as $row => $RowData) {
       }
       if ($key == 'category_id') {
         $CategoryName = $con->conn->query("SELECT `category_name` FROM `category` WHERE `category_id` = $value ")->fetch_assoc()['category_name'];
-        echo "<td class='tr  ' scope='col'>$CategoryName</td>";
+        echo "<td class='tr' style='padding :20px;' scope='col'>$CategoryName</td>";
         continue;
       }
-      echo "<td class='tr  ' scope='col'>$value</td>";
+      echo "<td class='tr' style='padding :20px;' scope='col'>$value</td>";
     }
     $name = "name$id";
     echo "<td>
@@ -94,7 +97,7 @@ foreach ($data as $row => $RowData) {
             </button>
           </div>
           <div class='modal-body'>
-            are you sure you want to delete this product 
+            are you sure you want to delete $RowData[product_name] product 
           </div>
           <div class='modal-footer'>
             <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Cancel</button>
@@ -109,7 +112,7 @@ echo " <a type='button' class='btn updatecat'  href='http://localhost/ecommerce_
     update
   </a>
     </td>";
-    echo "</tr>";
+    echo " </tr></tbody>";
     
   }
   echo "</table>";
@@ -225,11 +228,28 @@ echo  "
     </li>";
     }?>
   </ul>
+   
+ 
   </div>
     </div>
 
 </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+document.addEventListener("DOMContentLoaded",()=>{
+const rows= document.querySelectorAll("tr[data-href]");
+rows.forEach(row => {
+  row.addEventListener('click',()=>{
+    window.location.href = row.dataset.href;
+  })
+});
+})
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js">
+      var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+  return new bootstrap.Tooltip(tooltipTriggerEl)
+})
+    </script>
 </body>
 </html>  

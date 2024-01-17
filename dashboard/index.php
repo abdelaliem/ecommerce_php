@@ -27,12 +27,13 @@
  ?>
  <div class='container-fluid h-100 mx-0'>
  <div class='row  h-100'>
- <?php require "../views/sidebar.php";
- 
+  <?php
+  session_start();
+
  if(!isset($_SESSION['username'])){
    header('location:http://localhost/ecommerce_php/views/adminLogin.php');
  }
- 
+   require "../views/sidebar.php";
  
  ?>
  <div class=' content col  '>

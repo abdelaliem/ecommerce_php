@@ -77,6 +77,7 @@ foreach ($productData as $key => $row) {
       update
      </button>";
      if($row1['order_quantity']>$row['quantity']){
+        $not=1;
     echo" <p class='text-danger'>we only have $row[quantity] of this product</p>";
      echo"<br>";
     }echo"
@@ -101,7 +102,13 @@ foreach ($productData as $key => $row) {
  <div class='card-body mt-4'>
     <p class='card-text fw-bold'>Total Price: <?php echo $order_price;?></p>
     <p class='card-text fw-bold'>Total Products: <?php echo $num_product;?></p>
-    <a href='http://localhost/ecommerce_php/views/addorder.php' class='btn w-50 mt-3 text-light btn-dark' type='button'>make order</a>
+    <?php
+    if(isset($not)){
+        echo "<a href='#' class='btn w-50 mt-3 text-light btn-dark' type=''>make order</a>";
+    }
+    
+    else{echo "<a href='http://localhost/ecommerce_php/views/addorder.php' class='btn w-50 mt-3 text-light btn-dark' type='button'>make order</a>";}
+    ?>
  </div>
     
 </div>

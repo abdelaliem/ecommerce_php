@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,10 +46,10 @@
  <div class='container'>
   <div class='row'>
   <?php
-   require "../../views/sidebar.php";
+  
    if(!isset($_SESSION['username'])){
     header('location:http://localhost/ecommerce_php/views/adminLogin.php');
-  }
+  } require "../../views/sidebar.php";
   
    ?>
 <div class="content col  mt-5 ">

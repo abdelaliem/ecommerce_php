@@ -28,13 +28,13 @@ class product
         $query = "DELETE FROM `products` WHERE `product_id` = $product_id";
         $result = $this->con->conn->query($query);
     }
-    public function UpdateProduct($product_id, string $name, $image, $desc, $quantity, $price, $cid, $status = 'available')
+    public function UpdateProduct($product_id, string $name, $image, $desc,$brief, $quantity, $price, $cid, $status = 'available')
     {
         if ($quantity != 0) {
-            $query = "UPDATE `products` SET  `product_name`='$name',`price`='$price',`product_img`='$image',`quantity`='$quantity',`description`='$desc',`status`='$status',`category_id`='$cid'  WHERE `product_id` = $product_id";
+            $query = "UPDATE `products` SET  `product_name`='$name',`price`='$price',`product_img`='$image',`quantity`='$quantity',`description`='$desc',`brief`='$brief',`status`='$status',`category_id`='$cid'  WHERE `product_id` = $product_id";
             $this->con->conn->query($query);
         } else {
-            $query = "UPDATE `products` SET  `product_name`='$name',`price`='$price',`product_img`='$image',`quantity`='$quantity',`description`='$desc',`status`='not available',`category_id`='$cid'  WHERE `product_id` = $product_id";
+            $query = "UPDATE `products` SET  `product_name`='$name',`price`='$price',`product_img`='$image',`quantity`='$quantity',`description`='$desc',`brief`='$brief',`status`='not available',`category_id`='$cid'  WHERE `product_id` = $product_id";
             $this->con->conn->query($query);
         }
     }
@@ -62,5 +62,10 @@ class product
             $data = $this -> con -> conn -> query($query)->fetch_all(MYSQLI_ASSOC);
             return $data;
     }
+    public function Get7AvailableProducts($start,$end){
+        $query = "SELECT * FROM `products`  WHERE `status` = 'available' limit $start,$end ";
+        $data = $this->con->conn->query($query)->fetch_all(MYSQLI_ASSOC);
+        return $data;
+}
 }
 // 1

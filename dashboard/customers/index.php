@@ -14,13 +14,15 @@
   <div class='row'>
 
   <?php 
+  session_start();
   spl_autoload_register(function($class){
   require "../../modules/".$class.=".php";
 });
- require "../../views/sidebar.php";
+ 
  if(!isset($_SESSION['username'])){
   header('location:http://localhost/ecommerce_php/views/adminLogin.php');
 }
+require "../../views/sidebar.php";
 $con = new Connection();
 $userT=new user($con);
 $data = $userT->get_users();
