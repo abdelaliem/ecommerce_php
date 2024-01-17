@@ -54,11 +54,11 @@ if(isset($_GET['page'])){
 $data = $product->Get7Products($start,$product_per_page);?>
 
 <table class='table w-100 h-100'>
-<tr class='tr mt-5 'scope='row'>
+<tr class='tr mt-5  'scope='row'>
 <th class='text-muted 'scope='col'> Product Name </th>
 <th class='text-muted  ' scope='col'> Price </th>
 <th class='text-muted  ' scope='col'> Quantity </th>
-<th class='text-muted  ' scope='col'> Description</th>
+<!-- <th class='text-muted  ' scope='col'> Brief</th> -->
 <th class='text-muted  ' scope='col'>Status</th>
 <th class='text-muted  ' scope='col'> Category Name </th>
 <th class='text-muted  ' scope='col'> Action </th>
@@ -68,7 +68,7 @@ foreach ($data as $row => $RowData) {
     echo "<tr class='tr   ' scope='row'>";
     foreach ($RowData as $key => $value) {
       $id = $RowData['product_id'];
-      if ($key == "product_id" or $key == "updated_on" or $key == "created_at" or $key == "product_img") {
+      if ($key == "product_id" or $key=='description' or $key=='brief' or $key == "updated_on" or $key == "created_at" or $key == "product_img") {
         continue;
       }
       if ($key == 'category_id') {
