@@ -11,13 +11,12 @@
     <title>Account</title>
 </head>
 <?php
-session_start();
+// session_start();
 require("../modules/product.php");
 require("../modules/Connection.php");
 $conn = new Connection;
 $product = new product($conn->conn);
 $data = $product->GetallProducts();
-// print_r($data);
 ?>
 
 <body style="background-color: #eee;">
@@ -25,12 +24,9 @@ $data = $product->GetallProducts();
         <div class="container">
 
             <?php
-            if (isset($_SESSION["email"])) {
-                $title = "MyAccount";
-                require('../views/navbar.php');
-                // require('../views/topbar.php');
-                // echo $_SESSION["email"];
-            } else {
+            $title = "MyAccount";
+            require('../views/navbar.php');
+            if (!isset($_SESSION["email"])) {
                 header("location: userlogin.php");
             }
 
@@ -56,7 +52,7 @@ $data = $product->GetallProducts();
                         </div>
                     </div>
                     <div class="card card0 w-100 mx-2">
-                    <div class="div1">
+                        <div class="div1">
                             <img src="<?php echo $data[1]["product_img"] ?>" class="" alt="...">
                         </div>
                         <div class="card-body">

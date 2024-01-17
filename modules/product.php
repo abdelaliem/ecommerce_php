@@ -9,6 +9,7 @@ class product
     public function GetProducts($id = 0)
     {
         if ($id != 0) {
+            // if there is id get
             $query = "SELECT * FROM `products` WHERE `product_id`=$id";
             $data = $this->con->conn->query($query)->fetch_all(MYSQLI_ASSOC);
             return $data;
@@ -17,9 +18,9 @@ class product
         $data = $this->con->conn->query($query)->fetch_all(MYSQLI_ASSOC);
         return $data;
     }
-    public function SetProduct($name, $image, $desc, $quantity, $price, $cid)
+    public function SetProduct($name, $image, $desc, $quantity, $price, $cid,$brief)
     {
-        $query2 = "INSERT INTO `products`(  `product_name`, `price`, `product_img`, `quantity`, `description`, `category_id` ) VALUES ( '$name','$price','$image','$quantity','$desc','$cid' )";
+        $query2 = "INSERT INTO `products`(  `product_name`, `price`, `product_img`, `quantity`, `description`, `category_id`,`brief` ) VALUES ( '$name','$price','$image','$quantity','$desc','$cid','$brief' )";
         $ex =  $this->con->conn->query($query2);
     }
     public function DeleteProduct($product_id)
@@ -57,9 +58,9 @@ class product
         return $data;
     }
     public function GetAvailableProducts(){
-        $query = "SELECT * FROM `products` WHERE `status` = 'available'";
-        $data = $this -> con -> conn -> query($query)->fetch_all(MYSQLI_ASSOC);
-        return $data;
+            $query = "SELECT * FROM `products` WHERE `status` = 'available'";
+            $data = $this -> con -> conn -> query($query)->fetch_all(MYSQLI_ASSOC);
+            return $data;
     }
 }
 // 1

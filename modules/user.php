@@ -54,8 +54,6 @@ class user
         $email = $result2->fetch_all(MYSQLI_NUM);
         if ($email[0][0] != 0) {
             $_SESSION["email"] = $email[0][0];
-            var_dump($email);
-
             return true;
         } else {
             return false;
