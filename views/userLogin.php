@@ -19,7 +19,6 @@ if(isset($_COOKIE["sessionId"])) {
     $check = $user->get_user_session($_COOKIE["sessionId"]);
     if($check){
         header("location: http://localhost/ecommerce_php/views/useraccount.php");
-        // echo $_SESSION["email"];
     }else{
         setcookie("sessionId","",time()-1456);
         header("Location: http://localhost/ecommerce_php/views/userlogin.php");
@@ -39,24 +38,19 @@ else {
         <form method="post" class="m-auto main mt-5">
             <h2 class="text-center ">Login</h2>
 
-            <label class="my-2">Email</label>
-            <br>
-            <input class="form-control" type="text" name="email">
-            <br>
-            <label class="my-2">Password</label>
-            <br>
-            <input class="form-control" type="text" name="password">
-            <div class="d-flex align-items-center my-4">
-                <input type="submit" class="btn btn-primary mt-4 button" value="Log in" />
+            <input class="form-control mt-5 my-4" type="text" name="email" placeholder="E-mail">
+            <input class="form-control mb-3" type="text" name="password" placeholder="Password">
+            <div class=" flex-column">
                 <div>
-                    <input type="checkbox" class="form control mt-4 ms-5" name="rem" value="true">
-                    <label>Stay loged in</label>
+                    <input type="checkbox" class="form control mt-2 ms-2" style="width:20px;" name="rem" value="true">
+                    <label style="font-size: 19px;">Stay loged in</label>
                 </div>
-
+                <input type="submit" class="btn btn-primary mt-2 mb-4 button w-100" value="Log in" />
             </div>
+            <hr>
             <div class="d-flex justify-content-evenly my-4">
-                <a class="text-decoration-none btn btn-outline-dark " href="adminLogin.php">Admin</a>
-                <a class="text-decoration-none btn btn-outline-dark " href="./userregister.php">Register</a>
+                <a class="text-decoration-none btn btn-outline-dark w-25" href="adminLogin.php">Admin</a>
+                <a class="text-decoration-none btn btn-outline-dark w-25" href="./userregister.php">Register</a>
             </div>
             <div class="err">
                 <?php

@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../index.css?v=<?php echo time(); ?>">
-  <!-- Font Awesome Cdn Link -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Font Awesome Cdn Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <title>Document</title>
 </head>
 <body>   
@@ -20,7 +20,6 @@
  if(!isset($_SESSION['username'])){
   header('location:http://localhost/ecommerce_php/views/adminLogin.php');
 }
-
  ?>
           
 <div class='content h-100 col mt-4'>
@@ -29,11 +28,11 @@
 
 if($_SERVER['REQUEST_METHOD']=="POST"){
  $con = new Connection();
- if(trim($_POST['name']) && trim($_POST['image']) && trim($_POST['desc'])){
+ if(trim($_POST['name']) && trim($_POST['image']) && trim($_POST['desc']) && trim($_POST['brief'])){
    
    print_r($_POST);
    $product = new product($con);
-   $product -> SetProduct($_POST['name'],$_POST['image'],$_POST['desc'],$_POST['quantity'],$_POST['price'],$_POST['cid']);
+   $product -> SetProduct($_POST['name'],$_POST['image'],$_POST['desc'],$_POST['quantity'],$_POST['price'],$_POST['cid'],$_POST["brief"]);
    header('location:http://localhost/ecommerce_php/dashboard/product?page=1');
  }
 }
@@ -54,12 +53,12 @@ if(isset($_GET['page'])){
 //showing products
 $data = $product->Get7Products($start,$product_per_page);?>
 
-<table class='table   w-100 h-100'>
+<table class='table w-100 h-100'>
 <tr class='tr mt-5 'scope='row'>
 <th class='text-muted 'scope='col'> Product Name </th>
 <th class='text-muted  ' scope='col'> Price </th>
 <th class='text-muted  ' scope='col'> Quantity </th>
-<th   class='text-muted    ' scope='col'> Description</th>
+<th class='text-muted  ' scope='col'> Description</th>
 <th class='text-muted  ' scope='col'>Status</th>
 <th class='text-muted  ' scope='col'> Category Name </th>
 <th class='text-muted  ' scope='col'> Action </th>
@@ -147,6 +146,10 @@ echo " <a type='button' class='btn updatecat'  href='http://localhost/ecommerce_
       <div class='col-7'>
         <label for='inputAddress' class='form-label mt-2'>Description</label>
         <input type='textarea' class='form-control' name='desc' required >
+      </div>
+      <div class='col-7'>
+        <label for='inputAddress' class='form-label mt-2'>Brief</label>
+        <input type='textarea' class='form-control' name='brief' required >
       </div>
       <div class='col-4'>
         <label for='inputAddress2' class='form-label mt-2'>Quantity</label>

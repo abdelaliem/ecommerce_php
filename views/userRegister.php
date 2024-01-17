@@ -44,7 +44,7 @@
                 <input class="form-control" type="text" name="address">
             </div>
             <div class="d-flex justify-content-evenly my-4">
-                <input type="submit" class="btn btn-dark " value="Register" />
+                <input type="submit" class="btn btn-dark w-25" value="Register" />
             </div>
             
             <?php
