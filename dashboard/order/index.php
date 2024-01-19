@@ -199,7 +199,7 @@ foreach ($data as $key => $array) {
   echo "<p class='text-danger d-inline-block'>canceled <i class='fa-solid fa-ban'></i></p>";
 }
     echo" </td>
-    <td data-href='http://localhost/ecommerce_php/dashboard/order/details.php?id=$row[user_id]&create=$row[created_at]'>$row[time]</td>
+    <td data-href='http://localhost/ecommerce_php/dashboard/order/details.php?id=$row[user_id]&create=$row[created_at]&date=$date'>$row[time]</td>
     <td>
     <a  class='del btn ' data-bs-toggle='modal' data-bs-target='#$modal' type='submit'>
     update
