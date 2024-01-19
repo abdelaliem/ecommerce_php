@@ -67,7 +67,7 @@ $data = $product->Get7Products($start,$product_per_page);?>
 <?php
 foreach ($data as $row => $RowData) {
     echo"<tbody   data-bs-toggle='tooltip' data-bs-placement='top' title='view more'> 
-    <tr  class='tr w-100 productrow tablerow' scope='row' data-href='http://localhost/ecommerce_php/dashboard/product/details.php?id=$RowData[product_id]' >
+    <tr  class='tr w-100 productrow tablerow' scope='row' >
     ";
     foreach ($RowData as $key => $value) {
       $id = $RowData['product_id'];
@@ -76,10 +76,10 @@ foreach ($data as $row => $RowData) {
       }
       if ($key == 'category_id') {
         $CategoryName = $con->conn->query("SELECT `category_name` FROM `category` WHERE `category_id` = $value ")->fetch_assoc()['category_name'];
-        echo "<td class='tr' style='padding :20px;' scope='col'>$CategoryName</td>";
+        echo "<td data-href='http://localhost/ecommerce_php/dashboard/product/details.php?id=$RowData[product_id]' class='tr' style='padding :20px;' scope='col'>$CategoryName</td>";
         continue;
       }
-      echo "<td class='tr' style='padding :20px;' scope='col'>$value</td>";
+      echo "<td class='tr' data-href='http://localhost/ecommerce_php/dashboard/product/details.php?id=$RowData[product_id]' style='padding :20px;' scope='col'>$value</td>";
     }
     $name = "name$id";
     echo "<td>
@@ -237,7 +237,7 @@ echo  "
 
     <script>
 document.addEventListener("DOMContentLoaded",()=>{
-const rows= document.querySelectorAll("tr[data-href]");
+const rows= document.querySelectorAll("td[data-href]");
 rows.forEach(row => {
   row.addEventListener('click',()=>{
     window.location.href = row.dataset.href;

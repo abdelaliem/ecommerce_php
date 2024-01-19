@@ -63,7 +63,7 @@
     foreach ($data as $key => $value) {
     echo "
   <li class='list-group-item mt-3 d-flex row  align-items-start'>
-    <div class='ms-2    col-3'>
+    <div class='ms-2   col-3'>
       <div class='fw-bold text-muted '>Category $value[category_id]</div>
       $value[category_name]
     </div>";

@@ -19,7 +19,8 @@ class order extends product
     return $data ; 
 }
    public function SetOrder($user_id,$product_id,$quantity,$price){
-         $query = "INSERT INTO `order`(  `user_id`, `product_id`, `quantity`, `price` ) VALUES ('$user_id','$product_id','$quantity','$price')";
+      $time = date('Y-m-d',(time()+(60*60*24)*3));
+         $query = "INSERT INTO `order`(  `user_id`, `product_id`, `quantity`, `price`,`time` ) VALUES ('$user_id','$product_id','$quantity','$price','$time')";
          $product_data =$this -> GetProducts($product_id);
          if($product_data[0]['quantity']>=$quantity){
             $this -> con -> conn -> query($query);
@@ -102,8 +103,49 @@ class order extends product
       $data = $this -> con -> conn -> query($query)->fetch_all(MYSQLI_ASSOC);
       return $data;
    }
+   public function ActiveUsers($id){
+      $query = "SELECT COUNT(`user_id`) as 'value',SUM(`price`)as'price',`user_id` FROM `order` WHERE `user_id`=$id";
+      $data = $this -> con -> conn -> query($query)->fetch_all(MYSQLI_ASSOC);
+      return $data;
+   }
+   public function PopularProduct($id){
+      $query = "SELECT COUNT(`user_id`) as 'value',SUM(`price`)as'price',`user_id` FROM `order` WHERE `product_id`=$id";
+      $data = $this -> con -> conn -> query($query)->fetch_all(MYSQLI_ASSOC);
+      return $data;
+   }
+   public function GetIds(){
+      $query = "SELECT `user_id` FROM `order` GROUP BY `user_id`";
+      $data = $this -> con -> conn -> query($query)->fetch_all(MYSQLI_ASSOC);
+      return $data;
+   }
+   public function OrdersData($ids){
+      $data=[];
+      foreach ($ids as $key => $row) {
+          $query="SELECT `time`,`status`,`created_at`,`user_id`,`order_id`,GROUP_CONCAT(`product_id`)as'products',GROUP_CONCAT(`quantity`)as'quantity',SUM(`price`) as 'price' FROM `order` WHERE `user_id`=$row[user_id] GROUP BY(`created_at`)  ";
+          $res = $this -> con -> conn -> query($query)->fetch_all(MYSQLI_ASSOC);
+          $data[]=$res;
+      }
+      return $data;
+   }
+   public function EditOrder($user_id,$created_at,$status,$time){
+      $query = "UPDATE `order` SET `status`='$status',`time`='$time' WHERE `user_id`=$user_id AND `created_at` ='$created_at'";
+      $res = $this -> con -> conn -> query($query);
+      return $res;
+   }
+   public function SelectOrder($user_id,$created_at){
+         $query = "SELECT `time`,`status`,`created_at`,`user_id`,`order_id`,GROUP_CONCAT(`product_id`)as'products',GROUP_CONCAT(`quantity`)as'quantity',SUM(`price`) as 'price' FROM `order` WHERE `user_id`=$user_id AND `created_at` ='$created_at' GROUP BY `created_at` ";
+         $data = $this -> con -> conn -> query($query)->fetch_all(MYSQLI_ASSOC);
+         return $data;
+   }
+   public function OrdersDataFilter($ids,$status){
+      $data=[];
+      foreach ($ids as $key => $row) {
+          $query="SELECT `time`,`status`,`created_at`,`user_id`,`order_id`,GROUP_CONCAT(`product_id`)as'products',GROUP_CONCAT(`quantity`)as'quantity',SUM(`price`) as 'price' FROM `order` WHERE `user_id`=$row[user_id] AND `status`='$status' GROUP BY(`created_at`)  ";
+          $res = $this -> con -> conn -> query($query)->fetch_all(MYSQLI_ASSOC);
+          $data[]=$res;
+      }
+      return $data;
+   }
+   
 }
- 
- 
- 
- 
+  

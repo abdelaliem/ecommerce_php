@@ -68,11 +68,49 @@
         <i class="fa-solid fa-user"></i>
         </span>
           <p class=' col  mt-3 '>Customers <br> <?php echo $NumU?></p>
-    </div>
+    </div> 
+  
 </a>
+ </div>
+ <?php
+ $data = $user -> get_users();
+ $res =[];
+ foreach ($data as $key => $value) {
+   $res[]=$order->ActiveUsers($value['user_id']);
+ }
+ usort($res,function($a,$b){
+  return $a[0]['value']<$b [0]['value'];
+ });
  
+ ?>
+  
+ <div class='col col-4 mt-5' style='background-color:white;padding:2%;border-radius:2%;'>
+  <h3 style='color:#c8aca9;' class='fw-bolder text-center'>Active Users</h3>
+ <table class='table text-muted mt-4'>
+  
+  <tr>
+  <th class='text-muted'>user name</th>
+  <th class='text-muted'>spent</th>
+  <th class='text-muted'>total orders</th>
+</tr>
+<?php
+$count =0;
+foreach ($res as $key => $row) {
+  $count+=1;
+    $user_name = $user->get_user_by_id($row[0]['user_id'])[0]['name'];
+    $price= $row[0]['price'];
+    $orders = $row[0]['value'];
+     echo "<tr><td>$user_name</td>
+     <td>$price</td>
+     <td>$orders</td>
+     </tr>";
+    if($count>5){
+      break;
+    }
+}
+?></table>
  </div>
- </div>
+</div>
 </div>
  
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js">
