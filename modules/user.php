@@ -23,6 +23,17 @@ class user
             // echo $e;
         }
     }
+    public function update_user($username, $Email, $password, $phone_number, $address)
+    {
+        try {
+            $query = "UPDATE `user` SET `name`='$username',`password`='$password',`email`='$Email',`phone`='$phone_number',`address`='$address' WHERE `email` = '$Email'";
+            // in the future we need to validate the new data !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            $this->conn->query($query);
+            // return header("Location: userAccount.php");
+        } catch (Exception $e) {
+            echo $e;
+        }
+    }   
     public function get_user($post)
     {
         $email = $post["email"];
@@ -31,19 +42,25 @@ class user
         $result = $this->conn->query($query);
         $count = $result->fetch_all(MYSQLI_NUM);
         if ($count[0][0] != 0) {
+            session_start();
             if (isset($post["rem"])) {
-                $sessionId = session_id();
+                $sessionId = session_create_id();
                 $query2 = "UPDATE `user` SET `sessionid`='$sessionId' WHERE `email` = '$email'";
                 $this->conn->query($query2);
                 setcookie("sessionId", $sessionId, time() + 60 * 60 * 60);
                 // setcookie("pass", $password, time() + 60);
             }
-            session_start();
             $_SESSION["email"] = $email;
             return header("Location:http://localhost/ecommerce_php/views/userAccount.php");
         } else {
             return "the email or password is not correct please try again";
         }
+    }
+    public function get_user_data($email)
+    {
+        $query = "SELECT * FROM `user` WHERE `email` = '$email'";
+        $result2 = $this->conn->query($query);
+        return $result2->fetch_all(MYSQLI_ASSOC)[0];
     }
     public function get_user_session($sessionId)
     {
@@ -103,5 +120,3 @@ public function MostOrders(){
 return $data;
 } 
 }
- 
- 

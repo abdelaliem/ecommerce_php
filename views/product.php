@@ -50,10 +50,10 @@
             <img src="<?php
             $img = $data[0]['product_img'];
             echo $img;
-            ?>"class="mb-lg-0 mb-sm-5" style="width:80%;text-align:center;border-radius:20px; " alt="">
+            ?>"class="mb-lg-0 mb-sm-5" style="width:80%;text-align:center;border-radius:10px; " alt="">
             
           </section>
-          <section style="background-color:#FBEBB5;box-shadow: 1px 2px 14px gray;border-radius:20px;padding:20px">
+          <section style="background-color:#FBEBB5;box-shadow: 1px 2px 14px gray;border-radius:10px;padding:20px">
             <h1 class="text-center mb-4"><?php print_r($data[0]['product_name']) ?></h1>
             <p style="font-size: 40px; font-weight:700;margin:0"><?php echo number_format($data[0]['price'], 2, '.', ',') ?> <sup>£</sup><p>
             <br />

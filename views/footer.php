@@ -7,10 +7,10 @@
             <div class="col-lg-3">
                 <h5 class="pt-3 pb-3 fw-bold">Links</h5>
                 <ul class="nav flex-column">
-                    <li class="nav-item mb-2 pt-3 pb-3 fw-bold"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-                    <li class="nav-item mb-2 pt-3 pb-3 fw-bold"><a href="#" class="nav-link p-0 text-muted">Shop</a></li>
+                    <li class="nav-item mb-2 pt-3 pb-3 fw-bold"><a href="http://localhost/ecommerce_php/views" class="nav-link p-0 text-muted">Home</a></li>
+                    <li class="nav-item mb-2 pt-3 pb-3 fw-bold"><a href="http://localhost/ecommerce_php/views/products.php" class="nav-link p-0 text-muted">Shop</a></li>
                     <li class="nav-item mb-2 pt-3 pb-3 fw-bold"><a href="#" class="nav-link p-0 text-muted">About</a></li>
-                    <li class="nav-item mb-2 pt-3 pb-3 fw-bold"><a href="#" class="nav-link p-0 text-muted">Content</a></li>
+                    <li class="nav-item mb-2 pt-3 pb-3 fw-bold"><a href="http://localhost/ecommerce_php/views/contact.php" class="nav-link p-0 text-muted">Contact</a></li>
                 </ul>
             </div>
 
