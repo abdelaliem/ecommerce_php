@@ -2,81 +2,106 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style/navbar.css">
-    <link href="../views/style/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet" href="./style/index.css">
-    <title>Account</title>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <!-- Font Awesome Cdn Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="./next.css?v=<?php echo time(); ?>">
+    <style>
+        .input {
+            position: absolute;
+            font-size: 50px;
+            opacity: 0;
+            right: 0;
+            top: 0;
+            cursor: pointer !important;
+
+        }
+
+        .file {
+            cursor: pointer !important;
+            position: relative;
+            overflow: hidden;
+        }
+    </style>
 </head>
-<?php
-// session_start();
-require("../modules/product.php");
-require("../modules/Connection.php");
-$conn = new Connection;
-$product = new product($conn->conn);
-$data = $product->GetallProducts();
-?>
 
-<body style="background-color: #eee;">
-    <div class="container-fluid p-0">
-        <div class="container">
+<body>
+    <?php
+    spl_autoload_register(function ($class) {
+        require "../modules/" . $class .= ".php";
+    });
+    $con = new Connection();
+    $user = new User($con->conn);
+    ?>
 
+    <div class='container-fluid h-100 mx-0'>
+        <div class='row h-100'>
             <?php
-            $title = "MyAccount";
-            require('../views/navbar.php');
-            if (!isset($_SESSION["email"])) {
-                header("location: userlogin.php");
+            session_start();
+            if (!isset($_SESSION['email'])) {
+                header('location:http://localhost/ecommerce_php/views/userlogin.php');
+            } elseif ($_SERVER["REQUEST_METHOD"] == "POST") {
+                $user->update_user($_POST["name"], $_POST["email"], $_POST["password"], $_POST["phone"], $_POST["address"]);
             }
-
+            $data = $user->get_user_data($_SESSION["email"]);
+            // var_dump($data);
+            require "./usersidebar.php";
             ?>
-        </div>
-        <div class="container-fluid d-flex justify-content-between">
-
-            <?php
-            require("./usersidebar.php");
-
-            ?>
-            <div class="m-5 mb-2 bg-light w-100 mainu d-flex flex-column">
-                <h2 class="mb-5">Best Deals</h2>
-                <div class="d-flex">
-                    <div class="card card0 w-100 mx-2">
-                        <div class="div1">
-                            <img src="<?php echo $data[0]["product_img"] ?>" class="" alt="...">
+            <div class='content col ps-5'>
+                <h1>Account</h1>
+                <div class="w-50">
+                    <form method="post" class="position-relative" enctype="multipart/form-data">
+                        <img src="<?php echo isset($data['img']) ? $data['img'] : 'default_profile_photo.jpg'; ?>" alt="Profile Photo" class="img-fluid" style="border-radius: 50%; width: 120px; height: 110px; object-fit: cover;">
+                        <div class="file btn btn-warning ms-4">
+                            Upload New Picture
+                            <input class="input" type="file" name="profile_photo" />
                         </div>
-                        <div class="card-body">
-                            <h5 class="card-title"><?php echo $data[0]["product_name"] ?></h5>
-                            <p class="card-text"><?php echo $data[0]["description"] ?></p>
-                            <a href="#" class="btn btn-primary">Buy Now</a>
+                        <!-- <input type="submit" value="Save Photo" class="btn btn-primary mt-2"> -->
+                    </form>
+                </div>
+                <div>
+                    <form action="" method="post" class="mt-5 w-75">
+                        <div class="row row-cols-2 flex-wrap">
+                            <div class=" col-6 my-3">
+                                <label for="" class=" fw-semibold fs-5 my-2">Name</label>
+                                <input type="text" class="form-control w-75" value="<?php if (isset($data)) {
+                                                                                        echo $data["name"];
+                                                                                    } ?>" name="name">
+                            </div>
+                            <div class=" col-6 my-3">
+                                <label for="" class=" fw-semibold fs-5 my-2">Email</label>
+                                <input type="text" class="form-control w-75" value="<?php if (isset($data)) {
+                                                                                        echo $data["email"];
+                                                                                    } ?>" name="email">
+                            </div>
+                            <div class=" col-6 my-3">
+                                <label for="" class=" fw-semibold fs-5 my-2">Phone</label>
+                                <input type="text" class="form-control w-75" value="0<?php if (isset($data)) {
+                                                                                            echo $data["phone"];
+                                                                                        } ?>" name="phone">
+                            </div>
+                            <div class=" col-6 my-3">
+                                <label for="" class=" fw-semibold fs-5 my-2">Address</label>
+                                <input type="text" class="form-control w-75" value="<?php if (isset($data)) {
+                                                                                        echo $data["address"];
+                                                                                    } ?>" name="address">
+                            </div>
+                            <div class=" col-6 my-3">
+                                <label for="" class=" fw-semibold fs-5 my-2">Password</label>
+                                <input type="text" class="form-control w-75" value="<?php if (isset($data)) {
+                                                                                        echo $data["password"];
+                                                                                    } ?>" name="password">
+                            </div>
                         </div>
-                    </div>
-                    <div class="card card0 w-100 mx-2">
-                        <div class="div1">
-                            <img src="<?php echo $data[1]["product_img"] ?>" class="" alt="...">
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title"><?php echo $data[1]["product_name"] ?></h5>
-                            <p class="card-text"><?php echo $data[1]["description"] ?></p>
-                            <a href="#" class="btn btn-primary">Buy Now</a>
-                        </div>
-                    </div>
-
+                        <input type="submit" value="Save Changes" class="btn btn-success my-3">
+                    </form>
                 </div>
             </div>
         </div>
-        <div class="container">
-
-            <?php
-            require("./footer.php")
-            ?>
-        </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js">
-
-    </script>
-    <a href="./logout.php">Logout</a>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

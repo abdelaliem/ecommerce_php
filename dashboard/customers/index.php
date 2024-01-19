@@ -92,7 +92,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
         <option value='spent'  >Most Spent</option>
         <option value='orders'  >Most Orders</option>
         </select>
-        <button type='submit' class='btn mx-4' style='background-color:#ff8e8e;color:white;border:none;button:hover: background-color:#b26262;color:white;'>Sort</button>
+        <button type='submit' class='btn mx-4' style='background-color:#ff8e8e;color:white;border:none;color:white;'>Sort</button>
         </form>
   </div>
  <div class='product mt-4 pt-0 h-100'>
