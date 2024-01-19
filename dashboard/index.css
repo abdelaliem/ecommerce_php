@@ -10,6 +10,7 @@ body{
    list-style: none;
    box-sizing: border-box;
  }
+ 
  .sidebar i{
    margin-right: 7%;
    width: 10%;
@@ -123,10 +124,10 @@ background: darkkhaki;
   color:#b26262  ;
   
  }
- option:checked{
+ /* option:checked{
   color: aliceblue;
   background-color: #7ad0efac;
- }
+ } */
 select{
   background-color: #a85d24;
   box-shadow: none;

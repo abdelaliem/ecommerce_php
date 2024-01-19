@@ -88,6 +88,12 @@ class user
         $data = $this->conn->conn->query($query)->fetch_all(MYSQLI_ASSOC);
         return $data;
     }
+    public function get_user_by_id($id){
+        $query = "SELECT * FROM `user` WHERE `user_id` = $id ";
+            $data = $this->conn->conn->query($query)->fetch_all(MYSQLI_ASSOC);
+            return $data;
+    }
+
     public function Customers_data($data){
         $Cdata = [];
         foreach ($data as $key => $user) {
@@ -110,13 +116,13 @@ class user
     usort($data,function($a,$b){
         return $a['spent']<$b['spent'];
     });
-return $data;
-} 
-public function MostOrders(){
+    return $data;
+    } 
+    public function MostOrders(){
     $data=$this->Customers_data($this->get_users());
     usort($data,function( $a,$b){
         return  $a['orders']<$b['orders'];
     });
 return $data;
-} 
+    } 
 }
