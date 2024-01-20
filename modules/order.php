@@ -109,7 +109,7 @@ class order extends product
       return $data;
    }
    public function PopularProduct($id){
-      $query = "SELECT COUNT(`user_id`) as 'value',SUM(`price`)as'price',`user_id` FROM `order` WHERE `product_id`=$id";
+      $query = "SELECT COUNT(`product_id`) as 'value', SUM(`price`)as'price',SUM(`quantity`)as'quantity',`product_id` FROM `order` WHERE `product_id`= $id";
       $data = $this -> con -> conn -> query($query)->fetch_all(MYSQLI_ASSOC);
       return $data;
    }
@@ -118,7 +118,12 @@ class order extends product
       $data = $this -> con -> conn -> query($query)->fetch_all(MYSQLI_ASSOC);
       return $data;
    }
-   public function OrdersData($ids){
+   public function OrdersData($ids,$time=0){
+      if($time){
+         $query="SELECT `time`,`status`,`created_at`,`user_id`,`order_id`,GROUP_CONCAT(`product_id`)as'products',GROUP_CONCAT(`quantity`)as'quantity',SUM(`price`) as 'price' FROM `order` WHERE `user_id`=$ids AND `created_at`='$time' GROUP BY(`created_at`)  ";
+         $res = $this -> con -> conn -> query($query)->fetch_all(MYSQLI_ASSOC);
+         return $res;
+      }
       $data=[];
       foreach ($ids as $key => $row) {
           $query="SELECT `time`,`status`,`created_at`,`user_id`,`order_id`,GROUP_CONCAT(`product_id`)as'products',GROUP_CONCAT(`quantity`)as'quantity',SUM(`price`) as 'price' FROM `order` WHERE `user_id`=$row[user_id] GROUP BY(`created_at`)  ";
@@ -131,6 +136,11 @@ class order extends product
       $query = "UPDATE `order` SET `status`='$status',`time`='$time' WHERE `user_id`=$user_id AND `created_at` ='$created_at'";
       $res = $this -> con -> conn -> query($query);
       return $res;
+   }
+   public function UpdateProductQuantity($id,$quantity){
+      $proQuantity = $this -> con -> conn->query("SELECT `quantity` FROM `products` WHERE `product_id`=$id")->fetch_all(MYSQLI_ASSOC);
+      $new_quanity = $proQuantity[0]['quantity'] +$quantity;
+      $this -> con -> conn -> query("UPDATE `products` SET  `quantity`=$new_quanity WHERE `product_id`=$id");
    }
    public function SelectOrder($user_id,$created_at){
          $query = "SELECT `time`,`status`,`created_at`,`user_id`,`order_id`,GROUP_CONCAT(`product_id`)as'products',GROUP_CONCAT(`quantity`)as'quantity',SUM(`price`) as 'price' FROM `order` WHERE `user_id`=$user_id AND `created_at` ='$created_at' GROUP BY `created_at` ";

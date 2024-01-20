@@ -96,7 +96,7 @@ $quantity = explode(',',$orderdata[0]['quantity']);
     <div class='modal-dialog' >
       <div class='modal-content'>
         <div class='modal-header'>
-          <h5 class='modal-title' id=$modal>Alert</h5>
+          <h5 class='modal-title' id=$modal>Update Order</h5>
           <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'>
           </button>
         </div>
@@ -105,7 +105,7 @@ $quantity = explode(',',$orderdata[0]['quantity']);
            <div class='d-inline-block'>
           <label class='form-label'>status</label>
           <select  class='form-select  ' name='status'>";?>
-            <option  class='text-danger' <?php if($status=='canceled'){echo "selected";}?> vlaue='canceled'>canceld</option>
+            <option  class='text-danger' <?php if($status=='canceled'){echo "selected";}?> vlaue='canceled'>canceled</option>
             <option  class='text-muted bold' <?php if($status=='completed'){echo "selected";}?> vlaue='completed'>completed</option>
             <option  class='text-success  bold' <?php if($status=='processing '){echo "selected";}?> vlaue='processing'>procssing</option>
           </select>

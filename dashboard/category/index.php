@@ -119,7 +119,7 @@
         echo"<tr>";
           
           echo "<td>$row[product_name]</td>";
-          echo "<td>$row[price]</td>";
+          echo "<td>$$row[price]</td>";
        
          echo"</tr>";
       }
