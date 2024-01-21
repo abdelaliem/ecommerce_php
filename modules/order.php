@@ -118,6 +118,11 @@ class order extends product
       $data = $this -> con -> conn -> query($query)->fetch_all(MYSQLI_ASSOC);
       return $data;
    }
+   public function GetId(){
+      $query = "SELECT `user_id` FROM `order` WHERE `user_id` = '19' GROUP BY `user_id`";
+      $data = $this -> con -> conn -> query($query)->fetch_all(MYSQLI_ASSOC);
+      return $data;
+   }
    public function OrdersData($ids,$time=0){
       if($time){
          $query="SELECT `time`,`status`,`created_at`,`user_id`,`order_id`,GROUP_CONCAT(`product_id`)as'products',GROUP_CONCAT(`quantity`)as'quantity',SUM(`price`) as 'price' FROM `order` WHERE `user_id`=$ids AND `created_at`='$time' GROUP BY(`created_at`)  ";

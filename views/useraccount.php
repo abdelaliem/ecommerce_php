@@ -51,15 +51,23 @@
             <div class='content col ps-5'>
                 <h1>Account</h1>
                 <div class="w-50">
-                    <form method="post" class="position-relative" enctype="multipart/form-data">
-                        <img src="<?php echo isset($data['img']) ? $data['img'] : 'default_profile_photo.jpg'; ?>" alt="Profile Photo" class="img-fluid" style="border-radius: 50%; width: 120px; height: 110px; object-fit: cover;">
+                    <form method="post" action="upload.php" class="position-relative" enctype="multipart/form-data">
+                        <img src="
+                        <?php 
+                            echo '../uploads/'.$data['img'];
+                        ?>" alt="Profile Photo" class="img-fluid" style="border-radius: 50%; width: 120px; height: 110px; object-fit: cover;">
                         <div class="file btn btn-warning ms-4">
                             Upload New Picture
                             <input class="input" type="file" name="profile_photo" />
                         </div>
-                        <!-- <input type="submit" value="Save Photo" class="btn btn-primary mt-2"> -->
+                        <input type="submit" name="submit" value="Save Photo" class="btn btn-primary mt-2">
                     </form>
                 </div>
+                    <p class=" fs-3 text-danger"><?php 
+                    if(isset($_GET["error"])){
+                        echo $_GET["error"];
+                    }
+                    ?></p>
                 <div>
                     <form action="" method="post" class="mt-5 w-75">
                         <div class="row row-cols-2 flex-wrap">

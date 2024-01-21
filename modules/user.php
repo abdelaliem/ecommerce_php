@@ -124,5 +124,17 @@ class user
         return  $a['orders']<$b['orders'];
     });
 return $data;
+    }
+    public function get_user_id_by_email($email){
+      $query = "SELECT `user_id` FROM `user` WHERE `email` = '$email'";
+      $data = $this -> conn ->conn-> query($query)->fetch_all(MYSQLI_ASSOC);
+      return $data;
+    } 
+    public function update_user_img($img_url,$email){
+        // echo $img_url;
+      $query = "UPDATE `user` SET `img`='$img_url' WHERE `email` = '$email'";
+      $this -> conn -> query($query);
+      
+    //   return $data;
     } 
 }

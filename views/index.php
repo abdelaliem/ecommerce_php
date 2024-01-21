@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link href="style/main.css" rel="stylesheet">
+    <!-- <link href="style/main.css" rel="stylesheet"> -->
     <style>
         @media (max-width:992px) {
             .ff p {
@@ -19,112 +19,165 @@
             .rr div {
                 text-align: center;
             }
+
+            .main-cont {
+                padding: 0 20px;
+            }
         }
+
+        .btn-default {
+            position: absolute;
+            top: 80%;
+            left: 50%;
+            width: 200px;
+            height: 50px;
+            font-size: 20px;
+            font-weight: 500;
+            border: 0;
+            background-color: white;
+            border-radius: 30px;
+            transition: 0.4s all;
+            transform: translate(-50%, -50%);
+        }
+
+        .btn-default a {
+            text-decoration: none;
+            color: black;
+            transition: 0.4s all;
+            display: block;
+        }
+
+        .btn-default:hover {
+            background-color: #c02234;
+        }
+
+        .btn-default:hover a {
+            color: white;
+        }
+
+        .img {
+            transition: 0.6s all;
+        }
+
+        .img:hover {
+            transform: scale(1.1);
+        }
+
+        .cont {
+            cursor: pointer;
+        }
+
+        .cont2 {
+            overflow: hidden;
+        }
+
+        .kitchen-cont {
+            padding: 0 70px !important;
+        }
+        .last-cont .btn-default{
+            top: 85%;
+        }
+        
     </style>
 </head>
 
 <body>
-    <div class="" style="background-color: #FBEBB5;">
+    <div class="container-fluid p-0">
         <?php
         require "navbar.php";
         ?>
-        <div class="container d-flex align-items-center justify-content-between">
+
+        <div>
+            <div class="container-fluid">
+                <img src="../img/Web-Banner-CountDown-07.png" class="w-100" alt="">
+            </div>
+        </div>
+        <div class="container-fluid row row-cols-xl-2 row-cols-lg-1 row-cols-sm-1 m-auto mt-5 px-lg-5">
+
+            <div class="col my-3 position-relative cont">
+                <div class=" p-0 m-0 cont2">
+                    <img class="w-100 img" src="../img/bedroom.jpg" alt="">
+                </div>
+                <button class="btn-default">
+                    <a href="http://localhost/ecommerce_php/views/products.php" class=" text-decoration-none">Bedroom</a>
+                </button>
+            </div>
+            <div class="col my-3 position-relative cont">
+                <div class=" p-0 m-0 cont2">
+                    <img class="w-100 img" src="../img/livingroom.jpg" alt="">
+                </div>
+                <button class="btn-default">
+                    <a href="http://localhost/ecommerce_php/views/products.php" class=" text-decoration-none">Living Room</a>
+                </button>
+            </div>
+            <div class="col my-3 position-relative cont">
+                <div class=" p-0 m-0 cont2">
+                    <img class="w-100 img" src="../img/outdoor.jpg" alt="">
+                </div>
+                <button class="btn-default">
+                    <a href="http://localhost/ecommerce_php/views/products.php" class=" text-decoration-none">Outdoor</a>
+                </button>
+            </div>
+            <div class="col my-3 position-relative cont">
+                <div class=" p-0 m-0 cont2">
+                    <img class="w-100 img" src="../img/diningroom.jpg" alt="">
+                </div>
+                <button class="btn-default">
+                    <a href="http://localhost/ecommerce_php/views/products.php" class=" text-decoration-none">Dining Room</a>
+                </button>
+            </div>
+
+        </div>
+        <div class="container-fluid row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 m-auto my-3 ">
+            <div class="col my-3 position-relative cont">
+                <div class=" p-0 m-0 cont2">
+                    <img class="w-100 img" src="../img/Hammoks.jpg" alt="">
+                </div>
+                <button class="btn-default">
+                    <a href="http://localhost/ecommerce_php/views/products.php" class=" text-decoration-none">Shop Now</a>
+                </button>
+            </div>
+            <div class="col my-3 position-relative cont">
+                <div class=" p-0 m-0 cont2">
+                    <img class="w-100 img" src="../img/bean bags.jpg" alt="">
+                </div>
+                <button class="btn-default">
+                    <a href="http://localhost/ecommerce_php/views/products.php" class=" text-decoration-none">Shop Now</a>
+                </button>
+            </div>
+            <div class="col my-3 position-relative cont">
+                <div class=" p-0 m-0 cont2">
+                    <img class="w-100 img" src="../img/recliner chair.jpg" alt="">
+                </div>
+                <button class="btn-default">
+                    <a href="http://localhost/ecommerce_php/views/products.php" class=" text-decoration-none">Shop Now</a>
+                </button>
+            </div>
+        </div>
+        <div class="container-fluid kitchen-cont">
             <div>
-                <h1 style="font-size:60px">Rocket single seater</h1>
-                <a href="products.php" class="btn0">Shop Now</a>
+                <img src="../img/kitchen.jpg" class="w-100 my-5" alt="">
             </div>
-            <div>
-                <img src="../img/Rocket single seater 1.png" class="img-fluid" alt="">
-            </div>
-        </div>
-    </div>
-
-    <div class="container-fluid " style="background-color: #FAF4F4;">
-        <div class="container d-flex justify-content-center p-5 flex-wrap">
-            <div class="one p-5">
-                <img src="../img/Granite square side table 1.png" alt="" />
-                <h3 class="fw-bold">Side table</h3>
-                <a class="btn0" href="products.php">View More</a>
-            </div>
-            <div class="two p-5">
-                <img src="../img/Cloud sofa three seater + ottoman_3 1.png" alt="" />
-                <h3 class="fw-bold">Side table</h3>
-                <a class="btn0" href="products.php">View More</a>
-            </div>
-        </div>
-    </div>
-    <br />
-    <div class="container-fluid">
-        <div class="text-center">
-            <h1>Top Picks For You</h1>
-            <br />
-            <h3 style="opacity: 50%">
-                Find a bright ideal to suit your taste with our great selection of suspension, floor, and table lights.
-            </h3>
-        </div>
-        <br />
-        <div class="container">
-            <div class="row">
-                <section class="first p-3 col-md-6 col-lg-3">
-                    <div class="text-center">
-                        <img src="../img/Trenton modular sofa_3 1.png" alt="" class="img-fluid" />
-                        <p class="mt-3">Trenton modular sofa_3</p>
-                        <h5>Rs. 25,000.00</h5>
+            <div class="row row-cols-md-2 row-cols-sm-1 last-cont">
+                <div class="col my-3 position-relative cont">
+                    <div class=" p-0 m-0 cont2">
+                        <img class="w-100 img" src="../img/shoe racks.jpg" alt="">
                     </div>
-                </section>
-
-                <section class="second p-3 col-md-6 col-lg-3">
-                    <div class="text-center">
-                        <img src="../img/Granite dining table with dining chair 1.png" alt="" class="img-fluid" />
-                        <p class="mt-3">Granite dining table with dining chair</p>
-                        <h5>Rs. 25,000.00</h5>
+                    <button class="btn-default">
+                        <a href="http://localhost/ecommerce_php/views/products.php" class=" text-decoration-none">Shop Now</a>
+                    </button>
+                </div>
+                <div class="col my-3 position-relative cont">
+                    <div class="p-0 m-0 cont2">
+                        <img class="w-100 img" src="../img/tv-benches.jpg" alt="">
                     </div>
-                </section>
-
-                <section class="third p-3 col-md-6 col-lg-3">
-                    <div class="text-center">
-                        <img src="../img/Outdoor bar table and stool 1.png" alt="" class="img-fluid" />
-                        <p class="mt-3">Outdoor bar table and stool</p>
-                        <h5>Rs. 25,000.00</h5>
-                    </div>
-                </section>
-
-                <section class="fourth p-3 col-md-6 col-lg-3">
-                    <div class="text-center">
-                        <img src="../img/Plain console with teak mirror 1.png" alt="" class="img-fluid" />
-                        <p class="mt-3">Plain console with teak mirror</p>
-                        <h5>Rs. 25,000.00</h5>
-                    </div>
-                </section>
+                    <button class="btn-default">
+                        <a href="http://localhost/ecommerce_php/views/products.php" class=" text-decoration-none">Shop Now</a>
+                    </button>
+                </div>
             </div>
         </div>
-
-        <br />
-        <br />
-        <div class="text-center m-5">
-            <a class="btn0">View More!</a>
-        </div>
-    </div>
-    <div class="container-fluid" style="background-color: rgba(250, 244, 244, 1);">
-        <div class="row ff d-flex justify-content-center w-100" >
-            <div class="col-lg-4 p-5">
-                <h1>Free Delivery</h1>
-                <p class="text-muted " style="font-size: 21px; width:75%">For all oders over $50, consectetur adipim scing elit</p>
-            </div>
-            <div class="col-lg-4 p-5">
-                <h1>90 Days Return</h1>
-                <p class="text-muted " style="font-size: 21px; width:75%">If goods have problems, consectetur adipim scing elit</p>
-            </div>
-            <div class="col-lg-4 p-5">
-                <h1>Secure Payment</h1>
-                <p class="text-muted" style="font-size: 21px; width:75%">100% secure payment, consectetur adipim scing elit</p>
-            </div>
-        </div>
-    </div>
-    <?php
-    require("footer.php");
-    ?>
-
+        <h3 class=" text-center"><hr class=" d-inline-block " style="width: 80px;vertical-align:center"> Follow us on Instagram <hr style="width: 80px" class="  d-inline-block"></h3>
     </div>
 </body>
 
