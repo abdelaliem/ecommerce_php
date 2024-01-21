@@ -90,7 +90,7 @@
    $resofpro[]=$populardata;
  }
  usort($resofpro,function($a,$b){
-  return $a[0]['quantity']<$b[0]['quantity'];
+  return $a[0]['value']<$b[0]['value'];
  });
  ?>
 <div class='container'>

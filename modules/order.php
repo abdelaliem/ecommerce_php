@@ -129,13 +129,11 @@ class order extends product
          $res = $this -> con -> conn -> query($query)->fetch_all(MYSQLI_ASSOC);
          return $res;
       }
-      $data=[];
-      foreach ($ids as $key => $row) {
-          $query="SELECT `time`,`status`,`created_at`,`user_id`,`order_id`,GROUP_CONCAT(`product_id`)as'products',GROUP_CONCAT(`quantity`)as'quantity',SUM(`price`) as 'price' FROM `order` WHERE `user_id`=$row[user_id] GROUP BY(`created_at`)  ";
+          $query="SELECT `time`,`status`,`created_at`,`user_id`,`order_id`,GROUP_CONCAT(`product_id`)as'products',GROUP_CONCAT(`quantity`)as'quantity',SUM(`price`) as 'price' FROM `order`  GROUP BY `created_at`,`user_id` ";
           $res = $this -> con -> conn -> query($query)->fetch_all(MYSQLI_ASSOC);
-          $data[]=$res;
-      }
-      return $data;
+          
+   
+      return $res;
    }
    public function EditOrder($user_id,$created_at,$status,$time){
       $query = "UPDATE `order` SET `status`='$status',`time`='$time' WHERE `user_id`=$user_id AND `created_at` ='$created_at'";
@@ -163,4 +161,4 @@ class order extends product
    }
    
 }
-  
+ 

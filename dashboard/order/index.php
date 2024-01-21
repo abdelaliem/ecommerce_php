@@ -28,6 +28,10 @@
 $user = new user($con);
 $order = new order($con);
 $data = $order->OrdersData( $order->GetIds());
+usort($data,function($a,$b){
+  return $a['created_at']<$b['created_at'];   
+
+});
 //filter data
 if(isset($_SESSION['option']))
 {
@@ -104,10 +108,9 @@ echo "<div class='product h-100 w-100 mt-3'>
  ?>
  <?php
  //getting all needed data
-foreach ($data as $key => $array) {
-      foreach ($array as $key => $row) {
-        
-   
+
+ 
+      foreach ($data as $key => $row) {
          date_default_timezone_set('africa/cairo');
          $datesec = time()-strtotime($row['created_at']) ;
          $datemin = round($datesec/60);
@@ -116,7 +119,7 @@ foreach ($data as $key => $array) {
          if($datedays>0){
           $date=$datedays.' days ';
           if($datedays==1){
-            $date = $datedays.' day';
+            $date = $datedays.' day ago';
           }
          }elseif ($datehours>0) {
            $date=$datehours.' hours ago';
@@ -246,7 +249,7 @@ foreach ($data as $key => $array) {
     </tbody> ";
 
       }
-}echo"</table>
+echo"</table>
 </div>";?>
  
 </div>

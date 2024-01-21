@@ -1,5 +1,4 @@
 <?php
-echo 'hoo';
 spl_autoload_register(function($class){
     require "../modules/".$class.=".php";
 });
