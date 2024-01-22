@@ -148,7 +148,7 @@ class order extends product
    public function UpdateProductQuantity($id,$quantity){
       $proQuantity = $this -> con -> conn->query("SELECT `quantity` FROM `products` WHERE `product_id`=$id")->fetch_all(MYSQLI_ASSOC);
       $new_quanity = $proQuantity[0]['quantity'] +$quantity;
-      $this -> con -> conn -> query("UPDATE `products` SET  `quantity`=$new_quanity WHERE `product_id`=$id");
+      $this -> con -> conn -> query("UPDATE `products` SET  `quantity`=$new_quanity , `status`='available' WHERE `product_id`=$id");
    }
    public function SelectOrder($user_id,$created_at){
          $query = "SELECT `time`,`status`,`created_at`,`user_id`,`order_id`,GROUP_CONCAT(`product_id`)as'products',GROUP_CONCAT(`quantity`)as'quantity',SUM(`price`) as 'price' FROM `order` WHERE `user_id`=$user_id AND `created_at` ='$created_at' GROUP BY `created_at` ";
