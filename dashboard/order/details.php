@@ -132,7 +132,7 @@ $quantity = explode(',',$orderdata[0]['quantity']);
   </div>
   
   <div class="card-footer text-center text-muted">
-    <?php echo "<p class='d-inline-block'>$date ago</p><p class='w-25 d-inline-block'></p>";     
+    <?php echo "<p class='d-inline-block'>$date </p><p class='w-25 d-inline-block'></p>";     
     if($status=='processing '){
                 echo "<p class='text-success d-inline-block' >processing <i class='fa-solid fa-spinner'></i></p>";
          }elseif ($status=='completed') {

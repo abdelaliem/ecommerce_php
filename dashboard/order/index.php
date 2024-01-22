@@ -154,7 +154,8 @@ echo "<div class='product h-100 w-100 mt-3'>
           <td style='padding-left:20px' class='tr' data-href='http://localhost/ecommerce_php/dashboard/order/details.php?id=$row[user_id]&create=$row[created_at]&date=$date'  scope='col'>$name</td>
           <td class='tr' data-href='http://localhost/ecommerce_php/dashboard/order/details.php?id=$row[user_id]&create=$row[created_at]&date=$date'  scope='col'>$$row[price]</td>";
           if($datehours>24){
-          echo "<td data-href='http://localhost/ecommerce_php/dashboard/order/details.php?id=$row[user_id]&create=$row[created_at]&date=$date'>$date and $datenewhours hours ago</td>";
+            $date="$date and $datehours hours ago";
+          echo "<td data-href='http://localhost/ecommerce_php/dashboard/order/details.php?id=$row[user_id]&create=$row[created_at]&date=$date'>$date</td>";
           }
       else{
         echo "<td class='tr'  data-href='http://localhost/ecommerce_php/dashboard/order/details.php?id=$row[user_id]&create=$row[created_at]&date=$date' scope='col' >$date </td>";
