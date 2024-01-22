@@ -58,12 +58,12 @@ class product
         return $data;
     }
     public function GetAvailableProducts(){
-            $query = "SELECT * FROM `products` WHERE `status` = 'available'";
+            $query = "SELECT * FROM `products` WHERE `quantity`>0";
             $data = $this -> con -> conn -> query($query)->fetch_all(MYSQLI_ASSOC);
             return $data;
     }
     public function Get7AvailableProducts($start,$end){
-        $query = "SELECT * FROM `products`  WHERE `status` = 'available' limit $start,$end ";
+        $query = "SELECT * FROM `products`  WHERE `quantity`> 0 limit $start,$end ";
         $data = $this->con->conn->query($query)->fetch_all(MYSQLI_ASSOC);
         return $data;
 }

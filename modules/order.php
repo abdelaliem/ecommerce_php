@@ -156,13 +156,10 @@ class order extends product
          return $data;
    }
    public function OrdersDataFilter($ids,$status){
-      $data=[];
-      foreach ($ids as $key => $row) {
-          $query="SELECT `time`,`status`,`created_at`,`user_id`,`order_id`,GROUP_CONCAT(`product_id`)as'products',GROUP_CONCAT(`quantity`)as'quantity',SUM(`price`) as 'price' FROM `order` WHERE `user_id`=$row[user_id] AND `status`='$status' GROUP BY(`created_at`)  ";
+          $query="SELECT `time`,`status`,`created_at`,`user_id`,`order_id`,GROUP_CONCAT(`product_id`)as'products',GROUP_CONCAT(`quantity`)as'quantity',SUM(`price`) as 'price' FROM `order` WHERE `status`='$status'  GROUP BY `created_at`,`user_id` ";
           $res = $this -> con -> conn -> query($query)->fetch_all(MYSQLI_ASSOC);
-          $data[]=$res;
-      }
-      return $data;
+     
+      return $res;
    }
    public function get_users_id(){
          $query = "SELECT `user_id` FROM `order` GROUP BY `user_id` ";
