@@ -131,10 +131,7 @@ return $data;
       return $data;
     } 
     public function update_user_img($img_url,$email){
-        // echo $img_url;
       $query = "UPDATE `user` SET `img`='$img_url' WHERE `email` = '$email'";
       $this -> conn -> query($query);
-      
-    //   return $data;
     } 
 }

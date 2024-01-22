@@ -24,12 +24,12 @@
 }?>
  
 <div class='col col-2'></div>
-<div class=' content container col  mx-3  mt-3 '  >
+<div class='content container col mx-3 mt-3'>
 <?php $con = new Connection();
 $user = new user($con);
 $order = new order($con);
-$user_id = $user->get_user_id_by_email($_SESSION["email"]);
-$data = $order->OrdersData( $user_id);
+$user_id = $user->get_user_id_by_email($_SESSION["email"])[0]["user_id"];
+$data = $order->Orderuser($user_id);
 
 $product = new product($con);   
 //make update to order 
@@ -56,10 +56,7 @@ echo "<div class='product h-100 w-100 mt-3'>
  ?>
  <?php
  //getting all needed data
-foreach ($data as $key => $array) {
-      foreach ($array as $key => $row) {
-        
-   
+      foreach ($data as $key => $row) {
          date_default_timezone_set('africa/cairo');
          $datesec = time()-strtotime($row['created_at']) ;
          $datemin = round($datesec/60);
@@ -197,8 +194,7 @@ foreach ($data as $key => $array) {
     </tr>
     </tbody> ";
 
-      }
-}echo"</table>
+      }echo"</table>
 </div>";?>
  
 </div>
@@ -216,4 +212,3 @@ var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
 })
 </script>
 </html>
- 

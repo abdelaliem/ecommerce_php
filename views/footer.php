@@ -1,35 +1,125 @@
-<footer class="row mt-5 w-100 rr m-auto px-5">
-            <div class="col-lg-3">
-                <p class="text-muted  mt-5">400 University Drive Suite 200 Coral <br>Gables, <br>FL 33134 USA
-                </p>
-            </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./style/footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Document</title>
+</head>
+<body>
+<footer class="footer text-center text-lg-start bg-body-tertiary text-muted p-4 " style="background-color:  #20284f !important">
+    <section class="d-flex justify-content-center justify-content-lg-between pt-4 pb-2 border-bottom row">
+    <!-- Left-Top -->
+      <h2 class="fw-bold pb-3 col-4" style=" color: white;">Sign up to our newsletter</h2>
+    <div class="col-4 d-flex">
+        <input type="email" class="form-control d-inline w-75 rounded-pill form-control-outline me-4 h-75" style="background-color: #ccc" name="Your E-mail" placeholder="Your email address">
+        <button type="submit" class="btn btn-danger h-75 rounded-pill fw-bold">SUBSCRIBE</button>
+    </div>
+    <!-- Right -->
+    <div class=" ps- col-3">
+      <a href="" class="me-4">
+            <a href="#" class="fa fa-facebook"></i>
+      </a>
+      <a href="" class="me-4">
+      <a href="#" class="fa fa-twitter"></a>
+      </a>
+      <a href="" class="me-4">
+      <a href="#" class="fa fa-instagram"></a>
+      </a>
+      <a href="" class="me-4">
+      <a href="#" class="fa fa-youtube"></a>
+      </a>
+      <a href="" class="me-4">
+      <a href="#" class="fa fa-pinterest"></a>
+      </a>
 
-            <div class="col-lg-3">
-                <h5 class="pt-3 pb-3 fw-bold">Links</h5>
-                <ul class="nav flex-column">
-                    <li class="nav-item mb-2 pt-3 pb-3 fw-bold"><a href="http://localhost/ecommerce_php/views" class="nav-link p-0 text-muted">Home</a></li>
-                    <li class="nav-item mb-2 pt-3 pb-3 fw-bold"><a href="http://localhost/ecommerce_php/views/products.php" class="nav-link p-0 text-muted">Shop</a></li>
-                    <li class="nav-item mb-2 pt-3 pb-3 fw-bold"><a href="#" class="nav-link p-0 text-muted">About</a></li>
-                    <li class="nav-item mb-2 pt-3 pb-3 fw-bold"><a href="http://localhost/ecommerce_php/views/contact.php" class="nav-link p-0 text-muted">Contact</a></li>
-                </ul>
-            </div>
+    </div>
+    <!-- Right -->
+  </section>
+  <!-- Section: Social media -->
 
-            <div class="col-lg-3">
-                <h5 class="pt-3 pb-3 fw-bold">Help</h5>
-                <ul class="nav flex-column">
-                    <li class="nav-item mb-2 pt-3 pb-3 fw-bold"><a href="#" class="nav-link p-0 text-muted">Payment Options</a></li>
-                    <li class="nav-item mb-2 pt-3 pb-3 fw-bold"><a href="#" class="nav-link p-0 text-muted">Returns</a></li>
-                    <li class="nav-item mb-2 pt-3 pb-3 fw-bold"><a href="#" class="nav-link p-0 text-muted">Privacy Policies</a></li>
-                </ul>
-            </div>
+  <!-- Section: Links  -->
+  <section class="border-bottom" style=" color: white;">
+    <div class="container-flued text-center text-md-start ">
+      <!-- Grid row -->
+      <div class="row mt-3">
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+          <!-- Content -->
+          <h5 class="fw-bold mb-4">
+            Know US
+          </h5>
+          <p>
+            <a href="#!" class=" a0 text-reset text-decoration-none">About Us</a>
+          </p>
+          <p>
+            <a href="#!" class=" a0 text-reset text-decoration-none">Privacy policy</a>
+          </p>
+          <p>
+            <a href="#!" class=" a0 text-reset text-decoration-none">Terms & conditions</a>
+          </p>
+        </div>
+        <!-- Grid column -->
 
-            <div class="col-lg-3">
-                <h5 class="pt-3 pb-5">Newsletter</h5>
-                <input type="email" placeholder="Enter Your Email Address" class="form-control w-75 border-bottom">
-                <input type="button" value="SUBSCRIBE" class="btn mt-3 border-bottom">
-            </div>
+        <!-- Grid column -->
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h5 class="fw-bold mb-4">
+            Our services
+          </h5>
+          <p>
+            <a href="#!" class=" a0 text-reset text-decoration-none">Guarantee</a>
+          </p>
+          <p>
+            <a href="#!" class=" a0 text-reset text-decoration-none">Payment mrthods</a>
+          </p>
+          <p>
+            <a href="#!" class=" a0 text-reset text-decoration-none">Return policy</a>
+          </p>
+        </div>
+        <!-- Grid column -->
 
-            <div class="border-top col-12 mt-4 pe-5">
-                <p class="mt-5 text-muted">2022 Meubel House. All rights reverved</p>
-            </div>
-        </footer>
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h5 class="fw-bold mb-4">
+            Help & advice
+          </h5>
+          <p>
+            <a href="#!" class=" a0 text-reset text-decoration-none">Blog</a>
+          </p>
+          <p>
+            <a href="#!" class=" a0 text-reset text-decoration-none">FAQ</a>
+          </p>
+          <p>
+            <a href="#!" class=" a0 text-reset text-decoration-none">Store Locator</a>
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+          <!-- Links -->
+          <h5 class="fw-bold mb-4">Contacts</h5>
+          <p>
+            <a href="#!" class=" a0 text-reset text-decoration-none">contact us</a>
+          </p>
+          <p>
+          <i style="font-size:15px; padding: 0px; width: 10px;" class="fa">&#xf095;</i>
+            15135
+          </p>
+          <p><i style="font-size:15px; padding: 0px; width: 10px;" class="fa fa-envelope d-inline"></i>
+          info@hubfurniture.com.eg
+        </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="text-center p-4" style="color: white;">
+    Copyright © 2023 Hub Furniture, Inc. All rights reserved
+  </div>
+</footer>
+</body>
+</html>

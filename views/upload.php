@@ -15,7 +15,7 @@
                 header("Location: http://localhost/ecommerce_php/views/useraccount.php?error=$em");
             }else{
                 $img_ex = strtolower(pathinfo($img_name,PATHINFO_EXTENSION));
-                $allowed_ext = ["jpg","png","jpeg"];
+                $allowed_ext = ["jpg","png","jpeg","enc"];
                 if(in_array($img_ex,$allowed_ext)){
                     $new_img_path = uniqid("IMG-",true).''.$img_ex;
                     $image_upload_path = '../uploads/'.$new_img_path ;

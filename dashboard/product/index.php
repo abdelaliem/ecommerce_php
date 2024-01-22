@@ -82,7 +82,7 @@ foreach ($data as $row => $RowData) {
       echo "<td class='tr' data-href='http://localhost/ecommerce_php/dashboard/product/details.php?id=$RowData[product_id]' style='padding :20px;' scope='col'>$value</td>";
     }
     $name = "name$id";
-    echo "<td>
+    echo "<td class='pt-4 d-flex justify-content-center align-content-center'>
    
     <button type='button' class='btn del' data-bs-toggle='modal' data-bs-target='#$name'>
       Delete
@@ -116,6 +116,12 @@ echo " <a type='button' class='btn updatecat'  href='http://localhost/ecommerce_
     
   }
   echo "</table>";
+       if(isset($_GET["err"])){
+        echo "<div class='alert alert-danger' role='alert'>
+        {$_GET['err']}
+      </div>";
+      }
+    
   echo "</div>";
  
 ?> 
@@ -179,12 +185,12 @@ echo " <a type='button' class='btn updatecat'  href='http://localhost/ecommerce_
      
         </select>
       </div>
-    
       </div>
       <div class='modal-footer'>
         <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Cancel</button>
         <button type='submit' class='btn addcat' >Add</button>
       </div>
+      
     </form>
     </div>
   </div>

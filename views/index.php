@@ -74,10 +74,33 @@
         .kitchen-cont {
             padding: 0 70px !important;
         }
-        .last-cont .btn-default{
+
+        .last-cont .btn-default {
             top: 85%;
         }
-        
+        .header{
+            color: #1a2854;
+            line-height: 24px;
+            font-weight: 700;
+        }
+        .header::before,
+        .header::after {
+            background-color: #9e9e9e !important;
+            position: absolute;
+            content: "";
+            width: 80px;
+            height: 2px;
+            background: #000;
+            top: 48%;
+        }
+
+        .header::before {
+            left: -95px;
+        }
+
+        .header::after {
+            right: -95px;
+        }
     </style>
 </head>
 
@@ -92,8 +115,10 @@
                 <img src="../img/Web-Banner-CountDown-07.png" class="w-100" alt="">
             </div>
         </div>
+        <div class=" d-flex justify-content-center my-5">
+            <h3 class="header m-auto position-relative d-inline-block"> Shop by Room </h3>
+        </div>
         <div class="container-fluid row row-cols-xl-2 row-cols-lg-1 row-cols-sm-1 m-auto mt-5 px-lg-5">
-
             <div class="col my-3 position-relative cont">
                 <div class=" p-0 m-0 cont2">
                     <img class="w-100 img" src="../img/bedroom.jpg" alt="">
@@ -128,6 +153,9 @@
             </div>
 
         </div>
+        <div class=" d-flex justify-content-center my-5">
+            <h3 class="header m-auto position-relative d-inline-block"> Trending Products</h3>
+        </div>
         <div class="container-fluid row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 m-auto my-3 ">
             <div class="col my-3 position-relative cont">
                 <div class=" p-0 m-0 cont2">
@@ -154,6 +182,9 @@
                 </button>
             </div>
         </div>
+        <div class=" d-flex justify-content-center">
+            <h3 class="header m-auto position-relative d-inline-block"> Our Kitchen </h3>
+        </div>
         <div class="container-fluid kitchen-cont">
             <div>
                 <img src="../img/kitchen.jpg" class="w-100 my-5" alt="">
@@ -177,7 +208,12 @@
                 </div>
             </div>
         </div>
-        <h3 class=" text-center"><hr class=" d-inline-block " style="width: 80px;vertical-align:center"> Follow us on Instagram <hr style="width: 80px" class="  d-inline-block"></h3>
+        <div class=" d-flex justify-content-center my-5">
+            <h3 class="header m-auto position-relative d-inline-block"> Follow us on Instagram </h3>
+        </div>
+        <?php
+        require("./footer.php");
+        ?>
     </div>
 </body>
 

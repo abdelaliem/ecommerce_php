@@ -74,7 +74,7 @@
  </div>
  <?php
  //active users data
- $data = $user -> get_users();
+ $data = $order -> get_users_id();
  $res =[];
  foreach ($data as $key => $value) {
    $res[]=$order->ActiveUsers($value['user_id']);

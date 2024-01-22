@@ -1,5 +1,7 @@
 <?php
-session_start();
+if(session_status()!=2){
+    session_start();
+}
 spl_autoload_register(function($class){
     require "../modules/".$class.=".php";
 });
@@ -29,7 +31,7 @@ $datao =$tabledata->GetData($user_id);
 
 <body>
    
-<nav class="navbar navbar-expand-lg">
+<nav class="navbar navbar-expand-lg" style="background-color: white;">
             <div class="container">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar">
                     <span class="navbar-toggler-icon"></span>
@@ -51,7 +53,7 @@ $datao =$tabledata->GetData($user_id);
                             <span class="fs-2 material-symbols-outlined">
                                 search
                             </span></a>
-                        <a class="nav-link mx-3" href="http://localhost/ecommerce_php/views/userLogin.php">
+                        <a class="nav-link mx-3" href="http://localhost/ecommerce_php/views/userlogin.php">
                             <span class="fs-2 material-symbols-outlined">
                                 person
                             </span></a>
@@ -66,6 +68,8 @@ $datao =$tabledata->GetData($user_id);
                 </div>
             </div>
         </nav>
-    <script src=""></script>
-</body>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js">
+
+</script>
+    </body>
 </html>

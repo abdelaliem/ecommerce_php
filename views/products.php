@@ -32,7 +32,7 @@
         }
         //showing products
         $products = $product->Get7AvailableProducts($start, $product_per_page); ?>
-
+        
 
         <div class="container mt-5">
             <div class="row row-cols-4 row-cols-lg-4 row-cols-md-2 row-cols-sm-1">
@@ -48,7 +48,6 @@
                                     <p class="card-text h-50 d-flex align-items-center"><?php
                                         echo $product['brief'];
                                         ?>
-                                        
                                     </p>
                                     <a class='btn w-100' style="background-color: #FBEBB5;" href="http://localhost/ecommerce_php/views/product.php/?id=<?php echo $product['product_id'] ?>">
                                         Details
@@ -120,23 +119,6 @@
       </li>";
         } ?>
         </ul>
-    </div>
-    <div class="container-fluid" style="background-color: rgba(250, 244, 244, 1);">
-        <div class="row ff d-flex justify-content-center w-100 mt-5">
-            <div class="col-lg-4 p-5">
-                <h1>Free Delivery</h1>
-                <p class="text-muted " style="font-size: 21px; width:75%">For all oders over $50, consectetur adipim scing elit</p>
-            </div>
-            <div class="col-lg-4 p-5">
-                <h1>90 Days Return</h1>
-                <p class="text-muted " style="font-size: 21px; width:75%">If goods have problems, consectetur adipim scing elit</p>
-            </div>
-            <div class="col-lg-4 p-5">
-                <h1>Secure Payment</h1>
-                <p class="text-muted" style="font-size: 21px; width:75%">100% secure payment, consectetur adipim scing elit</p>
-            </div>
-        </div>
-
     </div>
     <?php
     require('./footer.php');

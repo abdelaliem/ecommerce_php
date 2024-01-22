@@ -67,5 +67,10 @@ class product
         $data = $this->con->conn->query($query)->fetch_all(MYSQLI_ASSOC);
         return $data;
 }
+    public function get_products_by_search($search){
+         $query = "SELECT * FROM `products` WHERE `product_name` LIKE '%$search%'";
+         $data = $this->con->conn->query($query)->fetch_all(MYSQLI_ASSOC);
+        return $data;
+}
 }
 // 1

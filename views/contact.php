@@ -28,7 +28,7 @@
     require('topbar.php');
 
     ?>
-    <div class="container-fluid">
+    <div class="container-fluid p-0">
         <div class="pt-5 pb-5 text-center">
             <h1>Get In Touch With Us</h1>
             <p class="text-muted">For More Information About Our Product & Services. Please Feel Free To Drop Us <br>An Email. Our Staff Always Be There To Help You Out. Do Not Hesitate</p>
@@ -62,23 +62,6 @@
                 <button type="submit" class="btn btn-outline-dark mt-4">Submit</button>
             </div>
 
-        </div>
-
-
-
-        <div class="row ff d-flex justify-content-center" style="background-color: rgba(250, 244, 244, 1);">
-            <div class="col-lg-4 p-5">
-                <h1>Free Delivery</h1>
-                <p class="text-muted " style="font-size: 21px; width:75%">For all oders over $50, consectetur adipim scing elit</p>
-            </div>
-            <div class="col-lg-4 p-5">
-                <h1>90 Days Return</h1>
-                <p class="text-muted " style="font-size: 21px; width:75%">If goods have problems, consectetur adipim scing elit</p>
-            </div>
-            <div class="col-lg-4 p-5">
-                <h1>Secure Payment</h1>
-                <p class="text-muted" style="font-size: 21px; width:75%">100% secure payment, consectetur adipim scing elit</p>
-            </div>
         </div>
         <?php
         require("footer.php")

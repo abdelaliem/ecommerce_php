@@ -60,7 +60,7 @@
                             Upload New Picture
                             <input class="input" type="file" name="profile_photo" />
                         </div>
-                        <input type="submit" name="submit" value="Save Photo" class="btn btn-primary mt-2">
+                        <input type="submit" name="submit" value="Save Photo" class="btn btn-primary">
                     </form>
                 </div>
                     <p class=" fs-3 text-danger"><?php 
